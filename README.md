@@ -1,5 +1,7 @@
 # qt-sql-login-ang-signup
-![alt text](/images/login.png "login")
-![alt text](/images/signup.png "signup")
-![alt text](/images/main.png "main")
- Qt Qt5.5.1 MinGW 32bit
+1.![alt text](/images/login.png "login")
+2.![alt text](/images/signup.png "signup")
+3.![alt text](/images/main.png "main")
+
+
+<br /><br /><br /><br />##QT version: Qt Qt5.5.1 MinGW 32bit
