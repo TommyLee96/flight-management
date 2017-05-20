@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSqlQueryModel>
 #include <QSqlTableModel>
@@ -16,11 +16,16 @@ MainWindow::MainWindow(QWidget *parent) :
     model = new QSqlTableModel(this);
     model->setTable("user");
     model->select();
+     model2 = new QSqlTableModel(this);
+    model2->setTable("admin");
+    model2->select();
+
 
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
-
+    model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    ui->tableView_2->setModel(model2);
 }
 
 MainWindow::~MainWindow()
@@ -111,8 +116,88 @@ void MainWindow::on_pushButton_3_clicked()
 
     // 添加一行
     model->insertRow(rowNum);
-    model->setData(model->index(rowNum, 0), id);
+    model->setData(model->index(0, 0), id);
 
     // 可以直接提交
     //model->submitAll();
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    // 开始事务操作
+    model2->database().transaction();
+    if (model2->submitAll()) {
+        if(model2->database().commit()) // 提交
+            QMessageBox::information(this, tr("tableModel"),
+                                     tr("数据修改成功！"));
+    } else {
+        model2->database().rollback(); // 回滚
+        QMessageBox::warning(this, tr("tableModel"),
+                             tr("数据库错误: %1").arg(model2->lastError().text()),
+                             QMessageBox::Ok);
+    }
+}
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    model2->revertAll();
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    // 获得表的行数
+    int rowNum = model2->rowCount();
+    int id = 10;
+
+    // 添加一行
+    model2->insertRow(rowNum);
+    model2->setData(model2->index(0, 0), id);
+
+    // 可以直接提交
+    //model->submitAll();
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    // 获取选中的行
+    int curRow = ui->tableView_2->currentIndex().row();
+
+    // 删除该行
+    model2->removeRow(curRow);
+    int ok = QMessageBox::warning(this,tr("删除当前行!"),
+                                  tr("你确定删除当前行吗？"), QMessageBox::Yes, QMessageBox::No);
+    if(ok == QMessageBox::No)
+    { // 如果不删除，则撤销
+        model2->revertAll();
+    } else { // 否则提交，在数据库中删除该行
+        model2->submitAll();
+    }
+
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    model2->setSort(0, Qt::AscendingOrder);
+    model2->select();
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    model2->setSort(0, Qt::DescendingOrder);
+    model2->select();
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    QString name = ui->lineEdit_2->text();
+
+    // 根据姓名进行筛选，一定要使用单引号
+    model2->setFilter(QString("name = '%1'").arg(name));
+    model2->select();
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+    model2->setTable("admin");
+    model2->select();
 }

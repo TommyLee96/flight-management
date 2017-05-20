@@ -38,6 +38,7 @@ qDebug()<<"7777777777777";
         {
           user_dialog c;
             c.show();
+
             qDebug()<<"用户登录";
           return a.exec();
         }

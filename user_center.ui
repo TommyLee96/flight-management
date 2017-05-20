@@ -24,7 +24,11 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLineEdit" name="id_info"/>
+     <widget class="QLabel" name="id_info">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="password_info"/>
@@ -36,7 +40,7 @@
      <widget class="QLineEdit" name="useridnum_info"/>
     </item>
     <item>
-     <widget class="QComboBox" name="usersex_info"/>
+     <widget class="QLineEdit" name="usersex_info"/>
     </item>
     <item>
      <widget class="QLineEdit" name="usertel_info"/>
