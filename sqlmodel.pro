@@ -33,3 +33,6 @@ FORMS    += mainwindow.ui \
     signup.ui \
     user_dialog.ui \
     user_center.ui
+
+RESOURCES += \
+    img.qrc

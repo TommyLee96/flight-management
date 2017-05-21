@@ -29,7 +29,8 @@ void login::on_pushButton_clicked()
     if(username.isEmpty() || password.isEmpty())
     {
         QSqlQuery query3;
-        query3.exec("select * from user");
+
+        query3.exec("select * from user");//query3.exec("select * from user");
         while(query3.next())
         {
              qDebug()<<"test1";

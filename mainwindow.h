@@ -53,6 +53,7 @@ private:
     Ui::MainWindow *ui;
     QSqlTableModel *model;
     QSqlTableModel *model2;
+
 };
 
 #endif // MAINWINDOW_H

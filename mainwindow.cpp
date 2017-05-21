@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QSqlError>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -16,14 +15,13 @@ MainWindow::MainWindow(QWidget *parent) :
     model = new QSqlTableModel(this);
     model->setTable("user");
     model->select();
-     model2 = new QSqlTableModel(this);
-    model2->setTable("admin");
-    model2->select();
-
-
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
+
+    model2 = new QSqlTableModel(this);
+    model2->setTable("admin");
+    model2->select();
     model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView_2->setModel(model2);
 }
@@ -121,6 +119,23 @@ void MainWindow::on_pushButton_3_clicked()
     // 可以直接提交
     //model->submitAll();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void MainWindow::on_pushButton_9_clicked()
 {

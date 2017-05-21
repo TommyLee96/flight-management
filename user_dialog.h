@@ -28,6 +28,12 @@ private slots:
 
      void on_pushButton_2_clicked();
 
+     void on_pushButton_serachcity_clicked();
+
+     void on_pushButton_searchnum_clicked();
+
+
+
 private:
     Ui::user_dialog *ui;
 
