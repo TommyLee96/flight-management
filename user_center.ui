@@ -50,15 +50,19 @@
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>50</x>
      <y>70</y>
-     <width>51</width>
+     <width>62</width>
      <height>151</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>用户名</string>
       </property>
@@ -66,6 +70,10 @@
     </item>
     <item>
      <widget class="QLabel" name="label_3">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>密码</string>
       </property>
@@ -73,6 +81,10 @@
     </item>
     <item>
      <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>姓名</string>
       </property>
@@ -80,6 +92,10 @@
     </item>
     <item>
      <widget class="QLabel" name="label_5">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>身份证</string>
       </property>
@@ -87,6 +103,10 @@
     </item>
     <item>
      <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>性别</string>
       </property>
@@ -94,6 +114,10 @@
     </item>
     <item>
      <widget class="QLabel" name="label_6">
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
+font: 75 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string>联系方式</string>
       </property>
@@ -110,6 +134,9 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+   </property>
    <property name="text">
     <string>修改</string>
    </property>
@@ -123,10 +150,34 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+   </property>
    <property name="text">
     <string>退出</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>401</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/images/16.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections/>
