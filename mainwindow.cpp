@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     model = new QSqlTableModel(this);
     model->setTable("user");
@@ -18,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
+   // ui->tableView->setColumnWidth(0, 80);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->setAlternatingRowColors(true); //使用交替行颜色
 
     model2 = new QSqlTableModel(this);
     model2->setTable("admin");

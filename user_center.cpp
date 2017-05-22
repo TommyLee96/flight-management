@@ -9,13 +9,14 @@ user_center::user_center(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::user_center)
 {
+    this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     QSqlQuery query4;
 
     query4.exec("select * from user where id=? ");
     query4.addBindValue(userinfo);
     query4.exec();
-    qDebug()<<userinfo<<'88888888';
+    //qDebug()<<userinfo<<'88888888';
     while(query4.next())
 
    {
@@ -25,11 +26,11 @@ user_center::user_center(QWidget *parent) :
     ui->useridnum_info->setText(query4.value(3).toString());
     ui->usertel_info->setText(query4.value(5).toString());
     ui->usersex_info->setText(query4.value(4).toString());
-    qDebug() << query4.value(0).toString();
-    qDebug() << query4.value(1).toString();
-    qDebug() << query4.value(2).toString();
-    qDebug() << query4.value(3).toString();
-    qDebug() << query4.value(4).toString();
+    //qDebug() << query4.value(0).toString();
+    //qDebug() << query4.value(1).toString();
+    //qDebug() << query4.value(2).toString();
+    //qDebug() << query4.value(3).toString();
+    //qDebug() << query4.value(4).toString();
 }
 
 }

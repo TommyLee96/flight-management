@@ -10,8 +10,11 @@ login::login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::login)
 {
-    ui->setupUi(this);
 
+   // ui->webView->load(QUrl("http://ohpj4d5wh.bkt.clouddn.com/00169.jpg"));
+    //ui->webView->show();
+            ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->lineEdit_password->setEchoMode( QLineEdit::Password );
     ui->lineEdit_username->setFocus();//给一个输入焦点
 }

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>517</width>
+    <width>481</width>
     <height>400</height>
    </rect>
   </property>
@@ -22,8 +22,8 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>320</y>
+     <x>410</x>
+     <y>380</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -89,24 +89,33 @@
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>330</y>
-     <width>298</width>
-     <height>41</height>
+     <x>110</x>
+     <y>320</y>
+     <width>261</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>112</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="text">
-       <string>注册</string>
+       <string>登陆</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_2">
       <property name="text">
-       <string>登陆</string>
+       <string>注册</string>
       </property>
      </widget>
     </item>
@@ -135,6 +144,9 @@ font: 75 12pt &quot;Arial&quot;;</string>
     </item>
     <item>
      <widget class="QRadioButton" name="radioButton_admin">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(85, 170, 255);
 font: 75 12pt &quot;Arial&quot;;</string>
@@ -151,7 +163,7 @@ font: 75 12pt &quot;Arial&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>521</width>
+     <width>481</width>
      <height>191</height>
     </rect>
    </property>

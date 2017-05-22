@@ -72,7 +72,7 @@ static bool createConnection()
         QString y=query10.value(0).toString();
         query11.prepare("INSERT INTO info_seat(Seatid,Aircraftid,flag)VALUES(?,?,?)");
         query11.addBindValue(q);
-        qDebug()<<y;
+        //qDebug()<<y;
         query11.addBindValue(y);
         query11.addBindValue(0);
         query11.exec();

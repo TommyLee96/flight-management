@@ -10,7 +10,7 @@ signup::signup(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::signup)
 {
-
+    this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
 ui->lineEdit_id->setPlaceholderText("6~10字母数字)");
 

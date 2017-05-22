@@ -17,6 +17,8 @@ public:
     ~user_dialog();
     int i;      //文字滚动
     int j;
+
+    int o;
 private slots:
     void on_pushButton_clicked();
 
@@ -33,6 +35,10 @@ private slots:
      void on_pushButton_searchnum_clicked();
 
 
+
+     void on_btntime_clicked();
+
+     void on_pushButton_calenda_clicked();
 
 private:
     Ui::user_dialog *ui;
