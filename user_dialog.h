@@ -2,7 +2,7 @@
 #define USER_DIALOG_H
 
 #include <QDialog>
-
+class QSqlTableModel;
 
 namespace Ui {
 class user_dialog;
@@ -28,7 +28,7 @@ private slots:
 
    // void recmessage();
 
-     void on_pushButton_2_clicked();
+     //void on_pushButton_2_clicked();
 
      void on_pushButton_serachcity_clicked();
 
@@ -40,9 +40,11 @@ private slots:
 
      void on_pushButton_calenda_clicked();
 
+     void on_search_clicked();
+
 private:
     Ui::user_dialog *ui;
-
+    QSqlTableModel *model3;
 
 };
 

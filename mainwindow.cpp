@@ -66,7 +66,7 @@ void MainWindow::on_pushButton_5_clicked()
     QString name = ui->lineEdit->text();
 
     // 根据姓名进行筛选，一定要使用单引号
-    model->setFilter(QString("name = '%1'").arg(name));
+    model->setFilter(QString("username = '%1'").arg(name));
     model->select();
 }
 

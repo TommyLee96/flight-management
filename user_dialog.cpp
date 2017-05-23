@@ -6,6 +6,17 @@
 #include<QErrorMessage>
 #include<QSqlQuery>
 #include<QDebug>
+#include <QTableView>
+#include <QSqlQueryModel>
+#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
+
+#include <QtWebKitWidgets/QWebView>
+#include <QUrl>
+//#include <QtWebKitWidgets/QWebView>
+//#pragma comment(lib,"Qt5Widgets.lib")
+//#pragma comment(lib,"Qt5WebKitWidgets.lib")
+
 int checkfor;
 QString GoPlace;        //给机票信息窗口传送地名
 QString ToPlace;
@@ -19,11 +30,34 @@ user_dialog::user_dialog(QWidget *parent) :
 
     int o=1;
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
-    ui->setupUi(this);
-    ui->label->setText(userinfo);
-    QSqlQuery query4;
 
-   /* query4.exec("select * from user where id=? ");
+    ui->setupUi(this);
+    model3 = new QSqlTableModel(this);
+    //model = new QSqlTableModel();
+    //model3->setQuery("select * from info_seat");
+    //model3->setQuery("SELECT Aname,Aircraftmodle,info_seat.Aircraftid,Seatid FROM info_seat,info_aircraft WHERE info_seat.Aircraftid=info_aircraft.Aircraftid");
+
+    //ui->tableView->setModel(model);
+    model3->setTable("info_seat");
+    model3->select();
+    ui->tableView_showticket->setModel(model3);
+    model3->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
+    ui->tableView_showticket->resizeColumnsToContents();
+    ui->tableView_showticket->setAlternatingRowColors(true); //使用交替行颜色
+    ui->tableView_showticket->verticalHeader()->setVisible(false);
+    ui->tableView_showticket->setSelectionBehavior ( QAbstractItemView::SelectRows);
+    ui->label->setText(userinfo);
+
+
+    ui->pushButton_serachcity->setEnabled(false); //初始设置城市搜索为不可按
+    ui->pushButton_searchnum->setEnabled(true);
+
+    ui->dateEdit->setEditable(true); //设置选择航班号QComboBox可编辑
+    ui->dateEdit->hide();
+    ui->label_5->hide();
+    /* query4.exec("select * from user where id=? ");
     query4.addBindValue(userinfo);
     query4.exec();
     //qDebug()<<userinfo<<'88888888';
@@ -33,7 +67,7 @@ user_dialog::user_dialog(QWidget *parent) :
    }
 */
     ui->calendarWidget->hide();
-    ui->dateEdit->show();
+
     ui->pushButton_calenda->hide();
     ui->pushButton_serachcity->setFocus();
 
@@ -49,7 +83,9 @@ user_dialog::user_dialog(QWidget *parent) :
     QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
     QString strTime = time.toString("yyyy-MM-dd");//设("yyyy-MM-dd");设置系统时间显示格式
     ui->lcdNumber->display(strTime);//在lcdNumber上显示时间
-
+   // ui->webView->load();
+    ui->webView->load(QUrl("http://www.baidu.com/"));
+    ui->webView->show();
 
 
 }
@@ -84,10 +120,7 @@ void user_dialog::timemove()
 
 }
 
-void user_dialog::on_pushButton_2_clicked()
-{
 
-}
 
 void user_dialog::on_pushButton_serachcity_clicked()
 {
@@ -99,18 +132,26 @@ void user_dialog::on_pushButton_serachcity_clicked()
     ui->lineEdit_time->show();
     ui->btntime->show();
     ui->dateEdit->hide();
+    ui->label_5->hide();
+    ui->pushButton_serachcity->setEnabled(false);
+    ui->pushButton_searchnum->setEnabled(true);
 }
 
 void user_dialog::on_pushButton_searchnum_clicked()
 {
     ui->label_2->hide();
     ui->label_3->hide();
-    ui->label_4->hide();
+    ui->label_4->show();
     ui->comboBox->hide();
     ui->comboBox_2->hide();
-    ui->lineEdit_time->hide();
-    ui->btntime->hide();
+    ui->lineEdit_time->show();
+    ui->btntime->show();
     ui->dateEdit->show();
+    ui->label_5->show();
+    ui->pushButton_serachcity->setEnabled(true); //初始设置城市搜索为不可按
+    ui->pushButton_searchnum->setEnabled(false);
+
+    //ui->dateEdit->setEditable(true); //设置选择航班号QComboBox可编辑
 }
 
 
@@ -155,4 +196,21 @@ void user_dialog::on_pushButton_calenda_clicked()
     ui->lineEdit_time->setText(ui->calendarWidget->selectedDate().toString("yyyy-MM-dd"));
     ui->calendarWidget->hide();
     ui->pushButton_calenda->hide();
+}
+
+void user_dialog::on_search_clicked()
+{
+    qDebug()<<ui->dateEdit->currentText();
+    //info_seat (Seatid int,"             //座位id
+    //"Aircraftid varchar(20),
+    //tableView_showticket
+
+
+
+    //QString name = ui->lineEdit->text();
+   // model->setFilter(QString("name = '%1'").arg(name));
+    //model->select();
+    // 根据姓名进行筛选，一定要使用单引号
+    model3->setFilter(QString("Aircraftid = '%1'").arg(ui->dateEdit->currentText()));
+    model3->select();
 }

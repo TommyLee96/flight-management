@@ -31,7 +31,7 @@ static bool createConnection()
     query1.exec("insert into admin values('admin2', '222')");
     query1.exec();
 
-    QSqlQuery query2;                                                                         //飞机信息表***
+    QSqlQuery query2;  // Aname Aircraftmodle   Aircraftid                                                                    //飞机信息表***
     query2.exec("create table info_aircraft (Aircraftid int primary key, " //飞机号(主键) varchar
                "Aircraftmodle varchar(20),"                                       //飞机型号     varchar
                " Aname varchar(20),"                                              //公司        varchar
@@ -50,7 +50,7 @@ static bool createConnection()
     QSqlQuery query3;                                                                                //座位信息表****
     query3.exec("create table info_seat (Seatid int,"             //座位id
                "Aircraftid varchar(20),flag int,"
-               "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
+               "primary key(Seatid,Aircraftid))");
     //QSqlQuery query4;
     //query4.exec("insert into info_seat values(8, 'G123',1)");
 
