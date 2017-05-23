@@ -13,9 +13,8 @@ static bool createConnection()
                               "Unable to establish a database connection.", QMessageBox::Cancel);
         return false;
     }
+
     QSqlQuery query0;
-
-
     query0.exec("create table user (id varchar(20) primary key, "   //用户名 密码 姓名 身份证  性别 手机号码
                "password varchar(20),username varchar(20),useridnum varchar(18),usersex varchar(2),usertel varchar(11))");
     query0.exec("insert into user values('333', '333','张三','111111111111111111','女','18158873043')");
@@ -51,28 +50,20 @@ static bool createConnection()
     query3.exec("create table info_seat (Seatid int,"             //座位id
                "Aircraftid varchar(20),flag int,"
                "primary key(Seatid,Aircraftid))");
-    //QSqlQuery query4;
-    //query4.exec("insert into info_seat values(8, 'G123',1)");
-
-
 
 
     QSqlQuery query10;
     int w=0;//记录插入航班的数量
-    int h=0;
     query10.exec("select Aircraftid from info_aircraft");
     while(query10.next())
     {
     //qDebug()<<"hahhahahahhha";
     for(int q=1;q<=20;q++)
         {
-        h=q+20*w;
-        //qDebug()<<query10.value(0).toString();
         QSqlQuery query11;
         QString y=query10.value(0).toString();
         query11.prepare("INSERT INTO info_seat(Seatid,Aircraftid,flag)VALUES(?,?,?)");
         query11.addBindValue(q);
-        //qDebug()<<y;
         query11.addBindValue(y);
         query11.addBindValue(0);
         query11.exec();
@@ -81,18 +72,8 @@ static bool createConnection()
     }
     query10.exec();
 
-    /*QSqlQuery query4;
-    query4.exec("select * from info_aircraft where Aircraftid='HU7604' ");
-    while(query4.next())
-   {
-     qDebug()<<query4.value(0).toString();
-     qDebug()<<query4.value(1).toString();
-     qDebug()<<query4.value(2).toString();
-    }
-    */
+
     QSqlQuery query5;
-
-
     query5.exec("create table info_flight (Fid varchar(20) primary key,"  //航班信息表
                "Aircraftid varchar(20), Fsart varchar(20),"    //Fid Aircraftid Fsart Fend  AirportS AirportE
                "Fend varchar(20),AirportS varchar(20),"     //Fstarttime Fendtime   Fmoney
@@ -100,15 +81,7 @@ static bool createConnection()
                " Fmoney float,"
                "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
     query5.exec("insert into info_flight values('HU7604', '波音 787-800(大型)','海南航空',60)");
-    /*CA1846
-    CZ9285
-    MU5101
-    MU5171
-    CZ9274
-    FM9103
-    CZ3908
-    HU7604
-    */
+
     query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
                "Fid varchar(20) ,Aircraftid varchar(20), Seatid varchar(20),"
                "id varchar(20),"
@@ -116,17 +89,8 @@ static bool createConnection()
                "FOREIGN KEY(id) REFERENCES user(id),FOREIGN KEY(Seatid) REFERENCES info_seat(Seatid),"
                "FOREIGN KEY(Fid) REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
 
-              // "FOREIGN KEY(id) REFERENCES user(id),FOREIGN KEY(Seatid) REFERENCES info_seat(Seatid),"
-              // "FOREIGN KEY(Fid REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
-   /* QSqlQuery query6;
-    query6.exec("select * from info_ordered");
-    while(query6.next())
-    {
-         qDebug()<<"info_orderedinfo_orderedinfo_orderedinfo_ordered";
-         qDebug() << query6.value(0).toString()<< query6.value(1).toString();
-    }
-*/
-    //query.exec("CREATE TABLE list (fliename varchar(128) UNIQUE, fzip blob)";);
+
+
     return true;
 }
 #endif // CONNECTION_H

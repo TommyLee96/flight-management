@@ -26,11 +26,17 @@ user_center::user_center(QWidget *parent) :
     ui->useridnum_info->setText(query4.value(3).toString());
     ui->usertel_info->setText(query4.value(5).toString());
     ui->usersex_info->setText(query4.value(4).toString());
-    //qDebug() << query4.value(0).toString();
-    //qDebug() << query4.value(1).toString();
-    //qDebug() << query4.value(2).toString();
-    //qDebug() << query4.value(3).toString();
-    //qDebug() << query4.value(4).toString();
+    ui->password_info->setPlaceholderText("设置你的密码)");
+    ui->username_info->setPlaceholderText("设置你的名字)");
+    ui->useridnum_info->setPlaceholderText("设置你的身份证号)");
+    ui->usersex_info->setPlaceholderText("设置你的性别)");
+    ui->usertel_info->setPlaceholderText("设置你的号码)");
+    ui->id_info->setAlignment(Qt::AlignCenter);
+    ui->password_info->setAlignment(Qt::AlignCenter);
+    ui->username_info->setAlignment(Qt::AlignCenter);
+    ui->usersex_info->setAlignment(Qt::AlignCenter);
+    ui->useridnum_info->setAlignment(Qt::AlignCenter);
+    ui->usertel_info->setAlignment(Qt::AlignCenter);
 }
 
 }

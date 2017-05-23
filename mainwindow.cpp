@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
-   // ui->tableView->setColumnWidth(0, 80);
+    // ui->tableView->setColumnWidth(0, 80);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView->resizeColumnsToContents();
@@ -125,23 +125,6 @@ void MainWindow::on_pushButton_3_clicked()
     // 可以直接提交
     //model->submitAll();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void MainWindow::on_pushButton_9_clicked()
 {

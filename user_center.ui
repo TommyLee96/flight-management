@@ -16,110 +16,143 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>70</y>
+     <x>130</x>
+     <y>60</y>
      <width>160</width>
-     <height>152</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="id_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="password_info"/>
+     <widget class="QLineEdit" name="password_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="username_info"/>
+     <widget class="QLineEdit" name="username_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="useridnum_info"/>
+     <widget class="QLineEdit" name="useridnum_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="usersex_info"/>
+     <widget class="QLineEdit" name="usersex_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="usertel_info"/>
+     <widget class="QLineEdit" name="usertel_info">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 11pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>70</y>
-     <width>62</width>
-     <height>151</height>
+     <x>100</x>
+     <y>60</y>
+     <width>31</width>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>6</number>
+    </property>
     <item>
      <widget class="QLabel" name="label">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">border-image: url(:/images/用户名.png);
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>用户名</string>
+       <string/>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_3">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">border-image: url(:/images/mima.png);
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>密码</string>
+       <string/>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_4">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">border-image: url(:/images/姓名.png);
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>姓名</string>
+       <string/>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_5">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">border-image: url(:/images/身份证.png);
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>身份证</string>
+       <string/>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_2">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-image: url(:/images/性别.png);
+</string>
       </property>
       <property name="text">
-       <string>性别</string>
+       <string/>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_6">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(114, 94, 112, 255), stop:1 rgba(255, 255, 255, 255));
-font: 75 11pt &quot;Arial&quot;;</string>
+       <string notr="true">border-image: url(:/images/电话.png);
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>联系方式</string>
+       <string/>
       </property>
      </widget>
     </item>

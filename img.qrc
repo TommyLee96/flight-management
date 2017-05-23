@@ -11,5 +11,18 @@
         <file>images/19.jpg</file>
         <file>images/bitbug_favicon.ico</file>
         <file>images/giphy.gif</file>
+        <file>images/城市.png</file>
+        <file>images/到达地.png</file>
+        <file>images/个人中心.png</file>
+        <file>images/航班动态.png</file>
+        <file>images/起点.png</file>
+        <file>images/日期.png</file>
+        <file>images/我的订单.png</file>
+        <file>images/mima.png</file>
+        <file>images/电话.png</file>
+        <file>images/身份证.png</file>
+        <file>images/性别.png</file>
+        <file>images/姓名.png</file>
+        <file>images/用户名.png</file>
     </qresource>
 </RCC>

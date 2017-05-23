@@ -11,9 +11,9 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
 
-   // ui->webView->load(QUrl("http://ohpj4d5wh.bkt.clouddn.com/00169.jpg"));
+    // ui->webView->load(QUrl("http://ohpj4d5wh.bkt.clouddn.com/00169.jpg"));
     //ui->webView->show();
-            ui->setupUi(this);
+    ui->setupUi(this);
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->lineEdit_password->setEchoMode( QLineEdit::Password );
     ui->lineEdit_username->setFocus();//给一个输入焦点
@@ -32,7 +32,6 @@ void login::on_pushButton_clicked()
     if(username.isEmpty() || password.isEmpty())
     {
         QSqlQuery query3;
-
         query3.exec("select * from user");//query3.exec("select * from user");
         while(query3.next())
         {
@@ -54,7 +53,7 @@ void login::on_pushButton_clicked()
 
    else if(ui->radioButton_user->isChecked())       //旅客登录
     {
-       flag=0;
+        flag=0;
         int flag_user=1;
         QSqlQuery query2;
         query2.exec("select * from user ");
@@ -64,18 +63,18 @@ void login::on_pushButton_clicked()
            qDebug()<<"test3";
            if(query2.value(0).toString() == username)
             {
-                flag_user=0;
+               flag_user=0;
                if(query2.value(1).toString() == password)
                {
-                    userinfo=username;
+                   userinfo=username;
                    accept(); //user++;
 
-                    //userinfo=username;
+                   //userinfo=username;
                    // emit senddata(username);
-                   QMessageBox::information(this,tr("欢迎%1").arg(username),
-                                         tr("登录成功!"),QMessageBox::Ok);
-                    //由于登录窗口需要向主窗口传数据，在主窗口定义为全局变量，只绘制一次，所以每次注册后信息要清空
-                    this->close();
+                   //QMessageBox::information(this,tr("欢迎%1").arg(username),
+                         //                tr("登录成功!"),QMessageBox::Ok);
+                   //由于登录窗口需要向主窗口传数据，在主窗口定义为全局变量，只绘制一次，所以每次注册后信息要清空
+                   this->close();
                }
                else
                {
@@ -93,7 +92,6 @@ void login::on_pushButton_clicked()
             ui->lineEdit_username->clear();
             ui->lineEdit_password->clear();
             ui->lineEdit_username->setFocus();
-
         }
      }
 
@@ -102,59 +100,49 @@ void login::on_pushButton_clicked()
         flag=1;
         int flag_admin=1;
         QSqlQuery query4;
-            query4.exec("select * from admin ");
-
-
-            while(query4.next())
-            {
-               qDebug()<<"test4";
-               if(query4.value(0).toString() == username )
-                {
-                   flag_admin=0;
-                   if(query4.value(1).toString() == password)
-                   {
-                       accept(); //user++;
-                       QMessageBox::information(this,tr("欢迎%1").arg(username),
-                                             tr("登录成功!"),QMessageBox::Ok);
-                        //由于登录窗口需要向主窗口传数据，在主窗口定义为全局变量，只绘制一次，所以每次注册后信息要清空
-                        this->close();
-                   }
-                   else
-                   {
-                       QMessageBox::information(this,tr("错误%1").arg(username),
+        query4.exec("select * from admin ");
+        while(query4.next())
+        {
+            if(query4.value(0).toString() == username )
+             {
+                 flag_admin=0;
+                 if(query4.value(1).toString() == password)
+                 {
+                     accept(); //user++;
+                     // QMessageBox::information(this,tr("欢迎%1").arg(username),
+                     //              tr("登录成功!"),QMessageBox::Ok);
+                     //由于登录窗口需要向主窗口传数据，在主窗口定义为全局变量，只绘制一次，所以每次注册后信息要清空
+                     this->close();
+                 }
+            else
+             {
+                     QMessageBox::information(this,tr("错误%1").arg(username),
                                              tr("密码错啦!"),QMessageBox::Ok);
-                       ui->lineEdit_password->clear();
-                       ui->lineEdit_password->setFocus();
-                   }
-                }
-
-            }
-            if(flag_admin==1)                   ////判断用户名是否正确
-            {
-
-                QMessageBox::information(this,tr("错误%1").arg(username),
-                                      tr("没这个用户!"),QMessageBox::Ok);
-                 ui->lineEdit_username->clear();
-                ui->lineEdit_password->clear();
-                ui->lineEdit_username->setFocus();
-            }
-
+                     ui->lineEdit_password->clear();
+                     ui->lineEdit_password->setFocus();
+             }
+         }
 
       }
-
-
+      if(flag_admin==1)                   ////判断用户名是否正确
+       {
+         QMessageBox::information(this,tr("错误%1").arg(username),
+                                      tr("没这个用户!"),QMessageBox::Ok);
+         ui->lineEdit_username->clear();
+         ui->lineEdit_password->clear();
+         ui->lineEdit_username->setFocus();
+       }
+    }
 }
 
 
 void login::on_pushButton_2_clicked()
 {
-
-
-     signup w;
-     w.exec();
+    signup w;
+    w.exec();
 }
 
 void login::on_pushButton_3_clicked()
 {
-     close();
+    close();
 }
