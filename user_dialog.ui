@@ -397,9 +397,9 @@ border-radius: 3px;
   <widget class="QTableView" name="tableView_showticket">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>290</x>
      <y>90</y>
-     <width>361</width>
+     <width>381</width>
      <height>281</height>
     </rect>
    </property>
@@ -407,29 +407,20 @@ border-radius: 3px;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWebView" name="webView">
+  <widget class="QLabel" name="label_show">
    <property name="geometry">
     <rect>
-     <x>309</x>
-     <y>89</y>
-     <width>361</width>
+     <x>290</x>
+     <y>90</y>
+     <width>381</width>
      <height>281</height>
     </rect>
    </property>
-   <property name="url">
-    <url>
-     <string>about:blank</string>
-    </url>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -3,7 +3,8 @@
 
 #include <QDialog>
 class QSqlTableModel;
-
+class QMediaPlayer;
+class QVideoWidget;
 namespace Ui {
 class user_dialog;
 }
@@ -45,6 +46,8 @@ private slots:
 private:
     Ui::user_dialog *ui;
     QSqlTableModel *model3;
+    QMediaPlayer *player;
+    QVideoWidget *videoWidget;
 
 };
 

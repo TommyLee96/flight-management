@@ -10,12 +10,10 @@
 #include <QSqlQueryModel>
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
-
-#include <QtWebKitWidgets/QWebView>
-#include <QUrl>
-//#include <QtWebKitWidgets/QWebView>
-//#pragma comment(lib,"Qt5Widgets.lib")
-//#pragma comment(lib,"Qt5WebKitWidgets.lib")
+#include <QLabel>
+#include <QMovie>
+#include<QMediaPlayer>
+#include<QVideoWidget>
 
 int checkfor;
 QString GoPlace;        //给机票信息窗口传送地名
@@ -83,9 +81,15 @@ user_dialog::user_dialog(QWidget *parent) :
     QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
     QString strTime = time.toString("yyyy-MM-dd");//设("yyyy-MM-dd");设置系统时间显示格式
     ui->lcdNumber->display(strTime);//在lcdNumber上显示时间
-   // ui->webView->load();
-    ui->webView->load(QUrl("http://www.baidu.com/"));
-    ui->webView->show();
+    //QMovie *movie =new QMovie(":/images/benjaminwuraccooncomeandgomp4.mp4");
+   // ui->label_show->setMovie(movie);
+  // movie->start();
+    // player = new QMediaPlayer;
+     //ui->widget = new QVideoWidget;
+     //player->setVideoOutput(videoWidget);
+     //player->setMedia(QUrl(":/images/benjaminwuraccooncomeandgomp4.mp4"));
+     //ui->widget->show();
+     //player->play();
 
 
 }
