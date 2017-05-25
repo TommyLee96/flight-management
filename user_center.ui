@@ -16,8 +16,8 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>60</y>
+     <x>140</x>
+     <y>70</y>
      <width>160</width>
      <height>171</height>
     </rect>
@@ -79,9 +79,9 @@ font: 11pt &quot;Arial&quot;;</string>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>60</y>
-     <width>31</width>
+     <x>120</x>
+     <y>70</y>
+     <width>21</width>
      <height>171</height>
     </rect>
    </property>
@@ -161,7 +161,7 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>120</x>
      <y>250</y>
      <width>75</width>
      <height>23</height>
@@ -177,7 +177,7 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>250</y>
      <width>75</width>
      <height>23</height>

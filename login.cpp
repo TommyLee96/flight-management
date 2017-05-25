@@ -17,6 +17,9 @@ login::login(QWidget *parent) :
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->lineEdit_password->setEchoMode( QLineEdit::Password );
     ui->lineEdit_username->setFocus();//给一个输入焦点
+    ui->lineEdit_username->setPlaceholderText("用户名");
+    ui->lineEdit_password->setPlaceholderText("密码");
+    this->setWindowFlags(Qt::WindowCloseButtonHint); //只要关闭按钮
 }
 
 login::~login()

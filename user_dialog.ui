@@ -19,7 +19,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>100</x>
      <y>0</y>
      <width>71</width>
      <height>41</height>
@@ -39,7 +39,7 @@ font: 75 italic 14pt &quot;Arial&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>75</width>
-     <height>71</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -235,9 +235,9 @@ background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #4D4D4D,stop:1 
   <widget class="QComboBox" name="dateEdit">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>100</x>
      <y>190</y>
-     <width>101</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -286,10 +286,10 @@ border-radius: 3px;
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>41</width>
-     <height>51</height>
+     <x>30</x>
+     <y>190</y>
+     <width>31</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -303,15 +303,15 @@ border-image: url(:/images/航班动态.png);</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>29</x>
      <y>160</y>
-     <width>60</width>
+     <width>41</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 11pt &quot;Microsoft New Tai Lue&quot;;
-border-image: url(:/images/到达地.png);</string>
+border-image: url(:/images/起点.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -320,9 +320,9 @@ border-image: url(:/images/到达地.png);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>220</y>
-     <width>60</width>
+     <width>41</width>
      <height>41</height>
     </rect>
    </property>
@@ -337,9 +337,9 @@ border-image: url(:/images/到达地.png);</string>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>100</x>
      <y>170</y>
-     <width>81</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -353,9 +353,9 @@ border-radius: 3px;
   <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>220</y>
-     <width>81</width>
+     <x>100</x>
+     <y>230</y>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -369,7 +369,7 @@ border-radius: 3px;
   <widget class="QTableView" name="tableView_showticket">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>330</x>
      <y>20</y>
      <width>541</width>
      <height>421</height>
@@ -382,7 +382,7 @@ border-radius: 3px;
   <widget class="QLabel" name="label_show">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>330</x>
      <y>20</y>
      <width>541</width>
      <height>421</height>
@@ -401,7 +401,7 @@ border-radius: 3px;
    </property>
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>120</x>
      <y>90</y>
      <width>101</width>
      <height>41</height>
@@ -426,7 +426,7 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>40</x>
      <y>90</y>
      <width>81</width>
      <height>41</height>
@@ -467,10 +467,6 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
   <zorder>calendarWidget</zorder>
   <zorder>pushButton_searchnum</zorder>
   <zorder>pushButton_serachcity</zorder>
-  <zorder>horizontalSpacer</zorder>
-  <zorder>verticalSpacer</zorder>
-  <zorder>verticalSpacer_2</zorder>
-  <zorder>horizontalSpacer_2</zorder>
   <zorder>pushButton_calenda</zorder>
  </widget>
  <resources/>
