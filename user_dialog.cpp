@@ -13,9 +13,10 @@
 #include <QLabel>
 #include <QMovie>
 #include<QMediaPlayer>
+#include<QMessageBox>
 #include<QVideoWidget>
 
-int checkfor;
+ //默认城市搜索
 QString GoPlace;        //给机票信息窗口传送地名
 QString ToPlace;
 QString GoTimes;
@@ -26,11 +27,12 @@ user_dialog::user_dialog(QWidget *parent) :
     ui(new Ui::user_dialog)
 {
     int o=1;
+    checkfor=1;
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     model3 = new QSqlTableModel(this);
     ui->tableView_showticket->setModel(model3);
-    model3->setTable("info_seat");
+    model3->setTable("info_flight");
     model3->select();
     ui->tableView_showticket->setModel(model3);
     model3->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -51,7 +53,7 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->pushButton_serachcity->setFocus();
     ui->comboBox->setEditable(true);     //下拉框可编辑
     ui->comboBox_2->setEditable(true);
-    QString place = "北京,上海,长沙,深圳,香港,宿州";      //添加默认热门城市
+    QString place = "北京,上海,长沙,深圳,香港,宿州,合肥";      //添加默认热门城市
     QString place1 =  "上海,北京,宿州,深圳,香港,长沙";
     QStringList places = place.split(",",QString::SkipEmptyParts);
     QStringList places1 = place1.split(",",QString::SkipEmptyParts);
@@ -88,6 +90,7 @@ void user_dialog::timemove()
 
 void user_dialog::on_pushButton_serachcity_clicked()
 {
+    checkfor=1;  //选择城市查询
     ui->label_2->show();
     ui->label_3->show();
     ui->label_4->show();
@@ -103,6 +106,7 @@ void user_dialog::on_pushButton_serachcity_clicked()
 
 void user_dialog::on_pushButton_searchnum_clicked()
 {
+    checkfor=0;//选择航班号查询
     ui->label_2->hide();
     ui->label_3->hide();
     ui->label_4->show();
@@ -120,7 +124,7 @@ void user_dialog::on_pushButton_searchnum_clicked()
 void user_dialog::on_btntime_clicked()
 {
     o=o+1;
-    qDebug()<<j<<"on_btntime_clicked";
+    //qDebug()<<j<<"on_btntime_clicked";
     if(o % 2 == 0)
     {
         qDebug()<<"on_btntime_clicked";
@@ -141,6 +145,7 @@ void user_dialog::on_btntime_clicked()
 
 void user_dialog::on_pushButton_calenda_clicked()
 {
+    o=o+1;
     ui->lineEdit_time->setText(ui->calendarWidget->selectedDate().toString("yyyy-MM-dd"));
     ui->calendarWidget->hide();
     ui->pushButton_calenda->hide();
@@ -148,9 +153,44 @@ void user_dialog::on_pushButton_calenda_clicked()
 
 void user_dialog::on_search_clicked()
 {
-    qDebug()<<ui->dateEdit->currentText();
-    ui->label_show->hide();
-    // 根据姓名进行筛选，一定要使用单引号
-    model3->setFilter(QString("Aircraftid = '%1'").arg(ui->dateEdit->currentText()));
-    model3->select();
+    QString flagsta = ui->comboBox->currentText();
+    QString flagarr = ui->comboBox_2->currentText();
+    QString flagnum=ui->dateEdit->currentText();
+    QString flagdate=ui->lineEdit_time->text();
+    if(checkfor==1)           //按城市搜索
+                    //"110" "HU7604" "合肥" "上海" "合肥新桥机场" "上海虹桥机场" "2017-05-12" "9:30" "10:50:00" "1000"
+         // Fid,Aircraftid,Fstar,Fend,AirportS,AirportE,sdate date,Fstarttime time,Fendtime time,Fmoney float
+    {
+        if(flagsta.isEmpty() || flagarr.isEmpty() || flagdate.isEmpty())
+        {
+            QMessageBox::information(this,tr("亲爱的旅客%1").arg(userinfo),
+                                  tr("请输入完整信息,起点终点日期!"),QMessageBox::Ok);
+        }
+        else                                  //城市搜索和日期都不为空
+        {
+
+
+            qDebug()<<ui->lineEdit_time->text();
+            ui->label_show->hide();
+             // 根据姓名进行筛选，一定要使用单引号
+            model3->setFilter(QString("Fstart = '%1'").arg(ui->comboBox->currentText()));
+            model3->select();
+
+        }
+    }
+    else           //按航班号搜索
+    {
+        if(flagnum.isEmpty() || flagdate.isEmpty())
+        {
+            QMessageBox::information(this,tr("亲爱的旅客%1").arg(userinfo),
+                                  tr("请输入完整信息,起航班号日期!"),QMessageBox::Ok);
+        }
+    }
+}
+
+void user_dialog::on_pushButton_2_clicked()
+{
+    int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
+    qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
+
 }

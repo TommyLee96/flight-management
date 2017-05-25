@@ -18,7 +18,15 @@ int main(int argc, char *argv[])
      }
     MainWindow h;
     login w;
+    QSqlQuery query12;
 
+    query12.exec("select * from info_flight");
+    while(query12.next())
+    {
+
+        qDebug()<<query12.value(0).toString()<<query12.value(1).toString()<<query12.value(2).toString()<<query12.value(3).toString()<<query12.value(4).toString()<<query12.value(5).toString();
+        qDebug()<<query12.value(6).toString()<<query12.value(7).toString()<<query12.value(8).toString()<<query12.value(9).toString();
+    }
     if(w.exec()==QDialog::Accepted)
     {
         if(w.flag==1)   //管理员登陆

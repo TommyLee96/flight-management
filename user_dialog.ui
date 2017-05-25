@@ -382,8 +382,8 @@ border-radius: 3px;
   <widget class="QLabel" name="label_show">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>20</y>
+     <x>320</x>
+     <y>30</y>
      <width>541</width>
      <height>421</height>
     </rect>
@@ -448,6 +448,19 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>500</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>pushButton</zorder>
   <zorder>btntime</zorder>
@@ -468,6 +481,7 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
   <zorder>pushButton_searchnum</zorder>
   <zorder>pushButton_serachcity</zorder>
   <zorder>pushButton_calenda</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections/>

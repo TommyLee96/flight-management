@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     model = new QSqlTableModel(this);
-    model->setTable("user");
+    model->setTable("info_flight");
     model->select();
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setAlternatingRowColors(true); //使用交替行颜色
 
     model2 = new QSqlTableModel(this);
-    model2->setTable("admin");
+    model2->setTable("user");
     model2->select();
     model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView_2->setModel(model2);

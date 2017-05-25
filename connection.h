@@ -57,7 +57,7 @@ static bool createConnection()
     query10.exec("select Aircraftid from info_aircraft");
     while(query10.next())
     {
-    //qDebug()<<"hahhahahahhha";
+
     for(int q=1;q<=20;q++)
         {
         QSqlQuery query11;
@@ -72,15 +72,12 @@ static bool createConnection()
     }
     query10.exec();
 
-
     QSqlQuery query5;
-    query5.exec("create table info_flight (Fid varchar(20) primary key,"  //航班信息表
-               "Aircraftid varchar(20), Fsart varchar(20),"    //Fid Aircraftid Fsart Fend  AirportS AirportE
-               "Fend varchar(20),AirportS varchar(20),"     //Fstarttime Fendtime   Fmoney
-               "AirportE varchar(20) , Fstarttime datetime, Fendtime datetime,"
-               " Fmoney float,"
-               "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
-    query5.exec("insert into info_flight values('HU7604', '波音 787-800(大型)','海南航空',60)");
+    query5.exec("create table info_flight (Fid varchar(20) primary key, "
+               "Aircraftid varchar(20), Fstart varchar(20),Fend varchar(20),"                                       //飞机型号     varchar
+               " AirportS varchar(20),"                                              //公司        varchar
+               " AirportE  varchar(20),sdate date,Fstarttime time,Fendtime time,Fmoney float)");                                                 //座位数量   float
+    query5.exec("insert into info_flight values('110', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-12','9:30','10:50:00',1000)");
 
     query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
                "Fid varchar(20) ,Aircraftid varchar(20), Seatid varchar(20),"
@@ -89,7 +86,7 @@ static bool createConnection()
                "FOREIGN KEY(id) REFERENCES user(id),FOREIGN KEY(Seatid) REFERENCES info_seat(Seatid),"
                "FOREIGN KEY(Fid) REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
 
-
+    query5.exec();
 
     return true;
 }

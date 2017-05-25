@@ -19,6 +19,7 @@ public:
     int i;      //文字滚动
     int j;
     int o;
+    int checkfor;
 
 private slots:
     void on_pushButton_clicked();
@@ -29,13 +30,18 @@ private slots:
     void on_pushButton_calenda_clicked();
     void on_search_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::user_dialog *ui;
     QSqlTableModel *model3;
     QSqlQueryModel *model4;
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
-
+    QString flagsta;
+    QString flagarr;
+    QString flagdate;
+    QString flagnum;
 };
 
 #endif // USER_DIALOG_H
