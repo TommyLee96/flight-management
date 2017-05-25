@@ -45,39 +45,22 @@ static bool createConnection()
     query2.exec("insert into info_aircraft values('HU7604', '波音 787-800(大型)','海南航空',60)");
     query2.exec();
 
-
-    QSqlQuery query3;                                                                                //座位信息表****
-    query3.exec("create table info_seat (Seatid int,"             //座位id
-               "Aircraftid varchar(20),flag int,"
-               "primary key(Seatid,Aircraftid))");
-
-
-    QSqlQuery query10;
-    int w=0;//记录插入航班的数量
-    query10.exec("select Aircraftid from info_aircraft");
-    while(query10.next())
-    {
-
-    for(int q=1;q<=20;q++)
-        {
-        QSqlQuery query11;
-        QString y=query10.value(0).toString();
-        query11.prepare("INSERT INTO info_seat(Seatid,Aircraftid,flag)VALUES(?,?,?)");
-        query11.addBindValue(q);
-        query11.addBindValue(y);
-        query11.addBindValue(0);
-        query11.exec();
-        }
-    w++;
-    }
-    query10.exec();
-
     QSqlQuery query5;
     query5.exec("create table info_flight (Fid varchar(20) primary key, "
                "Aircraftid varchar(20), Fstart varchar(20),Fend varchar(20),"                                       //飞机型号     varchar
-               " AirportS varchar(20),"                                              //公司        varchar
-               " AirportE  varchar(20),sdate date,Fstarttime time,Fendtime time,Fmoney float)");                                                 //座位数量   float
-    query5.exec("insert into info_flight values('110', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-12','9:30','10:50:00',1000)");
+               " AirportS varchar(20),"                                              //公司Fstart varchar(20),Fendsdate         varchar
+               " AirportE  varchar(20),sdate varchar(20),Fstarttime time,Fendtime time,Fmoney float)");                                                 //座位数量   float
+    query5.exec("insert into info_flight values('000', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-12','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('001', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-14','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('002', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-16','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('003', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-18','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('004', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-20','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('005', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-22','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('006', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-24','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('007', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-26','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('008', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-28','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('009', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-30','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('010', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-01','9:30','10:50:00',1000)");
 
     query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
                "Fid varchar(20) ,Aircraftid varchar(20), Seatid varchar(20),"
@@ -87,6 +70,39 @@ static bool createConnection()
                "FOREIGN KEY(Fid) REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
 
     query5.exec();
+
+
+    QSqlQuery query3;                                                                                //座位信息表****
+    query3.exec("create table info_seat (Seatid int,Fid varchar(20),"             //座位id
+               "Aircraftid varchar(20),sdate varchar(20),flag int,"
+               "primary key(Seatid,Aircraftid,Fid))");
+    QSqlQuery query10;
+    int w=0;//记录插入航班的数量
+    query10.exec("select Fid,Aircraftid,sdate from info_flight");
+    while(query10.next())
+    {
+    qDebug()<<query10.value(0).toString();
+    //qDebug()<<'lalallalalla';
+    for(int q=1;q<=20;q++)
+        {
+        QSqlQuery query11;
+        QString u=query10.value(0).toString();
+        QString y=query10.value(1).toString();
+        QString p=query10.value(2).toString();
+        query11.prepare("INSERT INTO info_seat(Seatid,Fid,Aircraftid,sdate,flag)VALUES(?,?,?,?,?)");
+        query11.addBindValue(q);
+        query11.addBindValue(u);
+        query11.addBindValue(y);
+        query11.addBindValue(p);
+        query11.addBindValue(0);
+
+        query11.exec();
+        }
+    w++;
+    }
+    query10.exec();
+    query3.exec();
+
 
     return true;
 }

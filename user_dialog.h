@@ -32,9 +32,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_getflight_clicked();
+
 private:
     Ui::user_dialog *ui;
-    QSqlTableModel *model3;
+    QSqlTableModel *model3;  //座位界面
+    QSqlTableModel *model5;   //航班
     QSqlQueryModel *model4;
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
@@ -42,6 +45,9 @@ private:
     QString flagarr;
     QString flagdate;
     QString flagnum;
+    QString f1;
+    QString f2;
+    QString f3;
 };
 
 #endif // USER_DIALOG_H

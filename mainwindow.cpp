@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->setAlternatingRowColors(true); //使用交替行颜色
-
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     model2 = new QSqlTableModel(this);
     model2->setTable("user");
     model2->select();

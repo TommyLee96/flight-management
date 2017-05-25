@@ -15,7 +15,7 @@
 #include<QMediaPlayer>
 #include<QMessageBox>
 #include<QVideoWidget>
-
+#include<QString>
  //默认城市搜索
 QString GoPlace;        //给机票信息窗口传送地名
 QString ToPlace;
@@ -30,18 +30,36 @@ user_dialog::user_dialog(QWidget *parent) :
     checkfor=1;
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
-    model3 = new QSqlTableModel(this);
-    ui->tableView_showticket->setModel(model3);
-    model3->setTable("info_flight");
+
+    model3=new QSqlTableModel(this);
+    model3->setTable("info_seat");
     model3->select();
-    ui->tableView_showticket->setModel(model3);
     model3->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    //QSqlTableModel model3 = new QSqlTableModel;
+    ui->tableView_showticket->setModel(model3);
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView_showticket->resizeColumnsToContents();
     ui->tableView_showticket->setAlternatingRowColors(true); //使用交替行颜色
     ui->tableView_showticket->verticalHeader()->setVisible(false);
     ui->tableView_showticket->setSelectionBehavior ( QAbstractItemView::SelectRows);
+    ui->tableView_showticket->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    model5 = new QSqlTableModel(this);
+    model5->setTable("info_flight");
+    model5->select();
+    ui->tableView_buy->setModel(model5);
+    model5->setEditStrategy(QSqlTableModel::OnManualSubmit);
+
+
+
+    ui->tableView_buy->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView_buy->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
+    ui->tableView_buy->resizeColumnsToContents();
+    ui->tableView_buy->setAlternatingRowColors(true); //使用交替行颜色
+    ui->tableView_buy->verticalHeader()->setVisible(false);
+    ui->tableView_buy->setSelectionBehavior ( QAbstractItemView::SelectRows);
+    ui->tableView_buy->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->label->setText(userinfo);
     ui->pushButton_serachcity->setEnabled(false); //初始设置城市搜索为不可按
     ui->pushButton_searchnum->setEnabled(true);
@@ -91,6 +109,7 @@ void user_dialog::timemove()
 void user_dialog::on_pushButton_serachcity_clicked()
 {
     checkfor=1;  //选择城市查询
+    ui->tableView_buy->show();
     ui->label_2->show();
     ui->label_3->show();
     ui->label_4->show();
@@ -107,6 +126,7 @@ void user_dialog::on_pushButton_serachcity_clicked()
 void user_dialog::on_pushButton_searchnum_clicked()
 {
     checkfor=0;//选择航班号查询
+    ui->tableView_buy->hide();
     ui->label_2->hide();
     ui->label_3->hide();
     ui->label_4->show();
@@ -170,13 +190,40 @@ void user_dialog::on_search_clicked()
         {
 
 
-            qDebug()<<ui->lineEdit_time->text();
-            ui->label_show->hide();
-             // 根据姓名进行筛选，一定要使用单引号
-            model3->setFilter(QString("Fstart = '%1'").arg(ui->comboBox->currentText()));
-            model3->select();
+           // qDebug()<<ui->lineEdit_time->text();
+           ui->label_show->hide();
+           //ui->tableView_showticket->hide();
+           //现在根据出发到达日期在info_flight表中查询航班的Fid,Aircrafid,sdate
+           //获得Fid,Aircrafid,sdate在model查询获得座位
+           QString start=ui->comboBox->currentText();
+           QString Fend=ui->comboBox_2->currentText();
+           QString sdate=ui->lineEdit_time->text();
+           QSqlQuery query15;
+           qDebug()<<start<<"OO8O8O88O8OO8O8O8";
+           /*query15.exec(QString("select * from info_flight where Fstart = '%1'AND Fend='%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
 
-        }
+
+           //query15.addBindValue(start);
+
+           while(query15.next())
+          {
+               qDebug()<<"han";
+
+           QString f1=query15.value(0).toString();
+           QString f2=query15.value(1).toString();
+           QString f3=query15.value(6).toString();
+           qDebug()<<"555555555";
+            qDebug()<<f1<<f2<<f3;
+
+           }
+          query15.exec();
+          */
+          model5->setFilter(QString("Fstart = '%1' AND Fend= '%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
+             // 根据姓名进行筛选，一定要使用单引号
+        //model3->setFilter(QString("Fid = '%1'").arg(ui->comboBox->currentText()));
+         model5->select();
+
+       }
     }
     else           //按航班号搜索
     {
@@ -190,7 +237,29 @@ void user_dialog::on_search_clicked()
 
 void user_dialog::on_pushButton_2_clicked()
 {
+    ui->label_show->hide();
+     // 根据姓名进行筛选，一定要使用单引号
+    model3->setFilter(QString("sdate = '%1'").arg(ui->lineEdit_time->text()));
+    model3->select();
     int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
     qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
 
+}
+
+void user_dialog::on_getflight_clicked()
+{
+    int getflight_rowidx = ui->tableView_buy->selectionModel()->currentIndex().row();
+    qDebug()<<"FENGEXIAN";
+
+    qDebug()<<"FENGEXIAN888888888";
+    QString hh1=model5->index(getflight_rowidx,0).data().toString();
+    QString hh2=model5->index(getflight_rowidx,1).data().toString();
+    QString hh3=model5->index(getflight_rowidx,6).data().toString();
+    qDebug()<<hh1;
+    qDebug()<<hh2;
+    qDebug()<<hh3;
+   // model3->setFilter(QString("Fid = '%1' AND Aircraftid= '%2' AND  sdat='%3'").arg(hh1).arg(hh2).arg(hh3));
+    model3->setFilter(QString("Fid = '%1'").arg(hh1));
+    //model3->setFilter(QString("Fid = '%1' AND Aircraftid='%2' AND sdate=%3'").arg(hh1).arg(hh2).arg(hh3));
+    model3->select();
 }

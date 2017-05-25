@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>871</width>
+    <width>960</width>
     <height>559</height>
    </rect>
   </property>
@@ -216,12 +216,12 @@ background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #4D4D4D,stop:1 
     <string>确认选择</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="getseat">
    <property name="geometry">
     <rect>
      <x>410</x>
      <y>500</y>
-     <width>75</width>
+     <width>81</width>
      <height>23</height>
     </rect>
    </property>
@@ -229,7 +229,7 @@ background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #4D4D4D,stop:1 
     <string notr="true">font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
    </property>
    <property name="text">
-    <string>确认购买</string>
+    <string>确认该座位</string>
    </property>
   </widget>
   <widget class="QComboBox" name="dateEdit">
@@ -369,10 +369,10 @@ border-radius: 3px;
   <widget class="QTableView" name="tableView_showticket">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>20</y>
-     <width>541</width>
-     <height>421</height>
+     <x>220</x>
+     <y>10</y>
+     <width>651</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="showGrid">
@@ -382,10 +382,10 @@ border-radius: 3px;
   <widget class="QLabel" name="label_show">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>30</y>
-     <width>541</width>
-     <height>421</height>
+     <x>630</x>
+     <y>490</y>
+     <width>101</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -461,6 +461,29 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
     <string>PushButton</string>
    </property>
   </widget>
+  <widget class="QTableView" name="tableView_buy">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>250</y>
+     <width>661</width>
+     <height>241</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="getflight">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>530</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确认该航班</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>pushButton</zorder>
   <zorder>btntime</zorder>
@@ -468,7 +491,7 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
   <zorder>label_4</zorder>
   <zorder>lcdNumber</zorder>
   <zorder>search</zorder>
-  <zorder>pushButton_3</zorder>
+  <zorder>getseat</zorder>
   <zorder>dateEdit</zorder>
   <zorder>label_5</zorder>
   <zorder>label_3</zorder>
@@ -482,6 +505,8 @@ font: 11pt &quot;Microsoft New Tai Lue&quot;;</string>
   <zorder>pushButton_serachcity</zorder>
   <zorder>pushButton_calenda</zorder>
   <zorder>pushButton_2</zorder>
+  <zorder>tableView_buy</zorder>
+  <zorder>getflight</zorder>
  </widget>
  <resources/>
  <connections/>
