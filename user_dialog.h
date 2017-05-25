@@ -23,7 +23,7 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-    void timemove();
+
     void on_pushButton_serachcity_clicked();
     void on_pushButton_searchnum_clicked();
     void on_btntime_clicked();
@@ -31,8 +31,15 @@ private slots:
     void on_search_clicked();
 
     void on_pushButton_2_clicked();
+    void on_pushButton_3_clicked();
 
     void on_getflight_clicked();
+
+    void on_getseat_clicked();
+
+
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::user_dialog *ui;

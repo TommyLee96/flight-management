@@ -61,20 +61,26 @@ static bool createConnection()
     query5.exec("insert into info_flight values('008', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-28','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('009', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-30','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('010', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-01','9:30','10:50:00',1000)");
-
-    query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
+    query5.exec("insert into info_flight values('011', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-12','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('012', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-14','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('013', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-16','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('014', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-18','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('015', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-20','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('016', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-22','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('017', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-24','9:30','10:50:00',1000)");
+    /*query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
                "Fid varchar(20) ,Aircraftid varchar(20), Seatid varchar(20),"
                "id varchar(20),"
                "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid),"
                "FOREIGN KEY(id) REFERENCES user(id),FOREIGN KEY(Seatid) REFERENCES info_seat(Seatid),"
                "FOREIGN KEY(Fid) REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
-
+    */
     query5.exec();
 
 
     QSqlQuery query3;                                                                                //座位信息表****
     query3.exec("create table info_seat (Seatid int,Fid varchar(20),"             //座位id
-               "Aircraftid varchar(20),sdate varchar(20),flag int,"
+               "Aircraftid varchar(20),sdate varchar(20),flag int,id varchar(20),"
                "primary key(Seatid,Aircraftid,Fid))");
     QSqlQuery query10;
     int w=0;//记录插入航班的数量
@@ -89,12 +95,14 @@ static bool createConnection()
         QString u=query10.value(0).toString();
         QString y=query10.value(1).toString();
         QString p=query10.value(2).toString();
-        query11.prepare("INSERT INTO info_seat(Seatid,Fid,Aircraftid,sdate,flag)VALUES(?,?,?,?,?)");
+        QString t="";
+        query11.prepare("INSERT INTO info_seat(Seatid,Fid,Aircraftid,sdate,flag,id)VALUES(?,?,?,?,?,?)");
         query11.addBindValue(q);
         query11.addBindValue(u);
         query11.addBindValue(y);
         query11.addBindValue(p);
         query11.addBindValue(0);
+        query11.addBindValue(t);
 
         query11.exec();
         }
