@@ -41,11 +41,14 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView_showticket->resizeColumnsToContents();
-    //ui->tableView_showticket->setAlternatingRowColors(true); //使用交替行颜色
+    ui->tableView_showticket->hideColumn(5);
+    ui->tableView_showticket->hideColumn(4);
     ui->tableView_showticket->verticalHeader()->setVisible(false);
     ui->tableView_showticket->setSelectionBehavior ( QAbstractItemView::SelectRows);
     ui->tableView_showticket->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    //ui->tableView_showticket->columnsetColumnCount(5);
+    ui->tableView_showticket->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:lightblue;color: black;padding-left: 4px;border: 1px solid #6c6c6c;}");
+    ui->tableView_showticket->setAlternatingRowColors(true);
+    ui->tableView_showticket->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
     model5 = new QSqlTableModel(this);
     model5->setTable("info_flight");
     model5->select();
@@ -57,10 +60,16 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->tableView_buy->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_buy->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView_buy->resizeColumnsToContents();
-    //ui->tableView_buy->setAlternatingRowColors(true); //使用交替行颜色
     ui->tableView_buy->verticalHeader()->setVisible(false);
     ui->tableView_buy->setSelectionBehavior ( QAbstractItemView::SelectRows);
     ui->tableView_buy->setEditTriggers(QAbstractItemView::NoEditTriggers);
+   //ui->tableView_buy->setStyleSheet("background: rgb(56,56,56);alternate-background-color:rgb(48,51,55);selection-background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(56,56,56),stop:1 rgb(76,76,76));"); //设置选中背景色
+    ui->tableView_buy->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
+    ui->tableView_buy->setAlternatingRowColors(true);//使用交替行颜色
+    ui->tableView_buy->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
+    ui->tableView_buy->hideColumn(6);
+    ui->tableView_buy->hideColumn(3);
+    ui->tableView_buy->hideColumn(2);
     ui->label->setText(userinfo);
     ui->pushButton_serachcity->setEnabled(false); //初始设置城市搜索为不可按
     ui->pushButton_searchnum->setEnabled(true);
