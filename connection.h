@@ -49,7 +49,8 @@ static bool createConnection()
     query5.exec("create table info_flight (Fid varchar(20) primary key, "
                "Aircraftid varchar(20), Fstart varchar(20),Fend varchar(20),"                                       //飞机型号     varchar
                " AirportS varchar(20),"                                              //公司Fstart varchar(20),Fendsdate         varchar
-               " AirportE  varchar(20),sdate varchar(20),Fstarttime time,Fendtime time,Fmoney float)");                                                 //座位数量   float
+               " AirportE  varchar(20),sdate varchar(20),Fstarttime time,Fendtime time,Fmoney float,"
+               "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");                                                 //座位数量   float
     query5.exec("insert into info_flight values('000', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-12','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('001', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-14','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('002', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-16','9:30','10:50:00',1000)");
@@ -68,20 +69,13 @@ static bool createConnection()
     query5.exec("insert into info_flight values('015', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-20','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('016', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-22','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('017', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-05-24','9:30','10:50:00',1000)");
-    /*query5.exec("create table info_ordered (Tid int primary key,"     //订单信息
-               "Fid varchar(20) ,Aircraftid varchar(20), Seatid varchar(20),"
-               "id varchar(20),"
-               "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid),"
-               "FOREIGN KEY(id) REFERENCES user(id),FOREIGN KEY(Seatid) REFERENCES info_seat(Seatid),"
-               "FOREIGN KEY(Fid) REFERENCES info_flight(Fid),FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");
-    */
     query5.exec();
-
-
-    QSqlQuery query3;                                                                                //座位信息表****
+    
+	QSqlQuery query3;                                                                                //座位信息表****
     query3.exec("create table info_seat (Seatid int,Fid varchar(20),"             //座位id
                "Aircraftid varchar(20),sdate varchar(20),flag int,id varchar(20),"
-               "primary key(Seatid,Aircraftid,Fid))");
+			   "primary key(Seatid,Aircraftid,Fid),"
+               "FOREIGN KEY(Fid) REFERENCES info_aircraft(info_flight),FOREIGN KEY(Aircraftid) REFERENCES info_flight(Aircraftid))");
     QSqlQuery query10;
     int w=0;//记录插入航班的数量
     query10.exec("select Fid,Aircraftid,sdate from info_flight");
@@ -103,8 +97,7 @@ static bool createConnection()
         query11.addBindValue(p);
         query11.addBindValue(0);
         query11.addBindValue(t);
-
-        query11.exec();
+		query11.exec();
         }
     w++;
     }

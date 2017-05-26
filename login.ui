@@ -137,31 +137,6 @@ color:#000000;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>380</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">  background: transparent; 
-font: 12pt &quot;Arial&quot;;
- border-style:solid;  
-          
-      
-     
-background-color: rgb(255, 255, 255);
-         font: 14pt &quot;微软雅黑&quot;;
-        
-        border-radius: 8px;  </string>
-   </property>
-   <property name="text">
-    <string>X</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="enabled">
     <bool>true</bool>
@@ -229,7 +204,7 @@ background-color: rgb(255, 255, 255);
     </rect>
    </property>
    <property name="text">
-    <string>Copyright 2017 中国东方航空 </string>
+    <string>Copyright 2016—2017  第一组 </string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">

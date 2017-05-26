@@ -1,16 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/10.jpg</file>
         <file>images/11.jpg</file>
         <file>images/12.jpg</file>
         <file>images/13.jpg</file>
         <file>images/14.jpg</file>
         <file>images/16.jpg</file>
-        <file>images/17.jpg</file>
-        <file>images/18.jpg</file>
-        <file>images/19.jpg</file>
         <file>images/bitbug_favicon.ico</file>
-        <file>images/giphy.gif</file>
         <file>images/城市.png</file>
         <file>images/到达地.png</file>
         <file>images/个人中心.png</file>

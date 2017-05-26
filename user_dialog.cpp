@@ -32,7 +32,6 @@ user_dialog::user_dialog(QWidget *parent) :
     checkfor=1;
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
-
     model3=new QSqlTableModel(this);
     model3->setTable("info_seat");
     model3->setFilter(QString("id = '%1'").arg(""));
@@ -56,9 +55,6 @@ user_dialog::user_dialog(QWidget *parent) :
     model5->select();
     ui->tableView_buy->setModel(model5);
     model5->setEditStrategy(QSqlTableModel::OnManualSubmit);
-
-
-
     ui->tableView_buy->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_buy->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView_buy->resizeColumnsToContents();
@@ -102,9 +98,6 @@ user_dialog::~user_dialog()
 {
     delete ui;
 }
-
-
-
 void user_dialog::on_pushButton_clicked()
 {
     user_center d;
@@ -202,11 +195,7 @@ void user_dialog::on_search_clicked()
         }
         else                                  //城市搜索和日期都不为空
         {
-
-
-           // qDebug()<<ui->lineEdit_time->text();
            ui->label_show->hide();
-           //ui->tableView_showticket->hide();
            //现在根据出发到达日期在info_flight表中查询航班的Fid,Aircrafid,sdate
            //获得Fid,Aircrafid,sdate在model查询获得座位
            QString start=ui->comboBox->currentText();
@@ -214,13 +203,9 @@ void user_dialog::on_search_clicked()
            QString sdate=ui->lineEdit_time->text();
            QSqlQuery query15;
            qDebug()<<start<<"OO8O8O88O8OO8O8O8";
-
-          model5->setFilter(QString("Fstart = '%1' AND Fend= '%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
-             // 根据姓名进行筛选，一定要使用单引号
-        //model3->setFilter(QString("Fid = '%1'").arg(ui->comboBox->currentText()));
-         model5->select();
-
-       }
+           model5->setFilter(QString("Fstart = '%1' AND Fend= '%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
+           model5->select();
+        }
     }
     else           //按航班号搜索
     {
@@ -235,34 +220,32 @@ void user_dialog::on_search_clicked()
 void user_dialog::on_pushButton_2_clicked()
 {
     ui->label_show->hide();
-     // 根据姓名进行筛选，一定要使用单引号
-    model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
-    model3->select();
     int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
     if(model3->index(rowidx,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
-
     }
-
+    else
+    {
+       // 根据姓名进行筛选，一定要使用单引号
+       model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
+       model3->select();
+    }
     qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
-
 }
 
 void user_dialog::on_getflight_clicked()
 {
-    int getflight_rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
+    int getflight_rowidx = ui->tableView_buy->selectionModel()->currentIndex().row();
     if(model3->index(getflight_rowidx,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
-
     }
+    else
+    {
     if(checkfor==1)
     {
     int getflight_rowidx = ui->tableView_buy->selectionModel()->currentIndex().row();
-    qDebug()<<"FENGEXIAN";
-
-    qDebug()<<"FENGEXIAN888888888";
     QString hh1=model5->index(getflight_rowidx,0).data().toString();
     QString hh2=model5->index(getflight_rowidx,1).data().toString();
     QString hh3=model5->index(getflight_rowidx,6).data().toString();
@@ -275,29 +258,11 @@ void user_dialog::on_getflight_clicked()
     show6=model5->index(getflight_rowidx,6).data().toString();
     show7=model5->index(getflight_rowidx,7).data().toString();
     show8=model5->index(getflight_rowidx,8).data().toString();
-
-    qDebug()<<show0<<show1<<show2<<show3<<show4<<show5<<show6<<show7<<show8;
-    //qDebug()<<hh2;
-    qDebug()<<"hhhahahhdebug";
-   // model3->setFilter(QString("id = '%1'").arg(""));
-   // model3->setFilter(QString("Fid = '%1' AND Aircraftid= '%2' AND  sdat='%3'").arg(hh1).arg(hh2).arg(hh3));
     model3->setFilter(QString("Fid = '%1' AND id = '%2'").arg(hh1).arg(""));
-    //model3->setFilter(QString("Fid = '%1' AND Aircraftid='%2' AND sdate=%3'").arg(hh1).arg(hh2).arg(hh3));
     model3->select();
     ui->tableView_buy->hide();
     }
-   /* else
-        {
-
-        ui->label_show->hide();
-         // 根据姓名进行筛选，一定要使用单引号
-        model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
-        model3->select();
-        int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
-        qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
-
     }
-*/
 }
 
 void user_dialog::on_getseat_clicked()
@@ -315,6 +280,7 @@ void user_dialog::on_getseat_clicked()
     QMessageBox::information(NULL, QString("恭喜"), QString(tr("尊敬的客户")+userinfo+tr(",您已经购买从")+show2+tr("到")+show3+tr(",")+show4+tr("到")+show5+tr("的")+show1+tr("次航班。登机时间为")+show6+tr("的")+show7+tr("分")+tr(".中国东方航空祝您旅途愉快！！  24小时人工客服热线：95530,vip客户专属服务热线：96300")));
     // 可以直接提交
     model3->submitAll();
+    ui->label_show->show();
     }
 }
 
