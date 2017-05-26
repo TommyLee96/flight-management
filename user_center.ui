@@ -26,8 +26,18 @@
     <item>
      <widget class="QLabel" name="id_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
       <property name="text">
        <string/>
@@ -37,40 +47,85 @@ font: 11pt &quot;Arial&quot;;</string>
     <item>
      <widget class="QLineEdit" name="password_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="username_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="useridnum_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="usersex_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="usertel_info">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-font: 11pt &quot;Arial&quot;;</string>
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
       </property>
      </widget>
     </item>

@@ -1,6 +1,12 @@
 #ifndef USER_DIALOG_H
 #define USER_DIALOG_H
-
+#include <QSqlQueryModel>
+#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
+#include <QTableView>
+#include <QDebug>
+#include <QMessageBox>
+#include <QSqlError>
 #include <QDialog>
 class QSqlTableModel;
 class QSqlQueryModel;
@@ -43,6 +49,7 @@ private slots:
 
 private:
     Ui::user_dialog *ui;
+
     QSqlTableModel *model3;  //座位界面
     QSqlTableModel *model5;   //航班
     QSqlQueryModel *model4;
@@ -55,6 +62,19 @@ private:
     QString f1;
     QString f2;
     QString f3;
+     QString show0;
+     QString show1;
+     QString show2;
+     QString show3;
+     QString show4;
+     QString show5;
+     QString show6;
+     QString show7;
+     QString show8;
+     QString show9;
+
+
+
 };
 
 #endif // USER_DIALOG_H

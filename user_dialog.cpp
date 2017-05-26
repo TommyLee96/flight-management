@@ -1,6 +1,7 @@
 #include "user_dialog.h"
 #include "ui_user_dialog.h"
 #include"login.h"
+#include"ordered.h"
 #include"global.h"
 #include"user_center.h"
 #include<QErrorMessage>
@@ -16,6 +17,7 @@
 #include<QMessageBox>
 #include<QVideoWidget>
 #include<QString>
+
  //默认城市搜索
 QString GoPlace;        //给机票信息窗口传送地名
 QString ToPlace;
@@ -63,7 +65,6 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->tableView_buy->verticalHeader()->setVisible(false);
     ui->tableView_buy->setSelectionBehavior ( QAbstractItemView::SelectRows);
     ui->tableView_buy->setEditTriggers(QAbstractItemView::NoEditTriggers);
-   //ui->tableView_buy->setStyleSheet("background: rgb(56,56,56);alternate-background-color:rgb(48,51,55);selection-background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(56,56,56),stop:1 rgb(76,76,76));"); //设置选中背景色
     ui->tableView_buy->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
     ui->tableView_buy->setAlternatingRowColors(true);//使用交替行颜色
     ui->tableView_buy->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
@@ -213,24 +214,7 @@ void user_dialog::on_search_clicked()
            QString sdate=ui->lineEdit_time->text();
            QSqlQuery query15;
            qDebug()<<start<<"OO8O8O88O8OO8O8O8";
-           /*query15.exec(QString("select * from info_flight where Fstart = '%1'AND Fend='%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
 
-
-           //query15.addBindValue(start);
-
-           while(query15.next())
-          {
-               qDebug()<<"han";
-
-           QString f1=query15.value(0).toString();
-           QString f2=query15.value(1).toString();
-           QString f3=query15.value(6).toString();
-           qDebug()<<"555555555";
-            qDebug()<<f1<<f2<<f3;
-
-           }
-          query15.exec();
-          */
           model5->setFilter(QString("Fstart = '%1' AND Fend= '%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
              // 根据姓名进行筛选，一定要使用单引号
         //model3->setFilter(QString("Fid = '%1'").arg(ui->comboBox->currentText()));
@@ -255,23 +239,46 @@ void user_dialog::on_pushButton_2_clicked()
     model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
     model3->select();
     int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
+    if(model3->index(rowidx,0).data().toString()=="")
+    {
+        QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
+
+    }
+
     qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
 
 }
 
 void user_dialog::on_getflight_clicked()
 {
+    int getflight_rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
+    if(model3->index(getflight_rowidx,0).data().toString()=="")
+    {
+        QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
+
+    }
     if(checkfor==1)
-    {int getflight_rowidx = ui->tableView_buy->selectionModel()->currentIndex().row();
+    {
+    int getflight_rowidx = ui->tableView_buy->selectionModel()->currentIndex().row();
     qDebug()<<"FENGEXIAN";
 
     qDebug()<<"FENGEXIAN888888888";
     QString hh1=model5->index(getflight_rowidx,0).data().toString();
     QString hh2=model5->index(getflight_rowidx,1).data().toString();
     QString hh3=model5->index(getflight_rowidx,6).data().toString();
-    qDebug()<<hh1;
-    qDebug()<<hh2;
-    qDebug()<<hh3;
+    show0=model5->index(getflight_rowidx,0).data().toString();
+    show1=model5->index(getflight_rowidx,1).data().toString();
+    show2=model5->index(getflight_rowidx,2).data().toString();
+    show3=model5->index(getflight_rowidx,3).data().toString();
+    show4=model5->index(getflight_rowidx,4).data().toString();
+    show5=model5->index(getflight_rowidx,5).data().toString();
+    show6=model5->index(getflight_rowidx,6).data().toString();
+    show7=model5->index(getflight_rowidx,7).data().toString();
+    show8=model5->index(getflight_rowidx,8).data().toString();
+
+    qDebug()<<show0<<show1<<show2<<show3<<show4<<show5<<show6<<show7<<show8;
+    //qDebug()<<hh2;
+    qDebug()<<"hhhahahhdebug";
    // model3->setFilter(QString("id = '%1'").arg(""));
    // model3->setFilter(QString("Fid = '%1' AND Aircraftid= '%2' AND  sdat='%3'").arg(hh1).arg(hh2).arg(hh3));
     model3->setFilter(QString("Fid = '%1' AND id = '%2'").arg(hh1).arg(""));
@@ -279,7 +286,7 @@ void user_dialog::on_getflight_clicked()
     model3->select();
     ui->tableView_buy->hide();
     }
-    else
+   /* else
         {
 
         ui->label_show->hide();
@@ -290,28 +297,38 @@ void user_dialog::on_getflight_clicked()
         qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
 
     }
+*/
 }
 
 void user_dialog::on_getseat_clicked()
 {
     int showticket_curRow = ui->tableView_showticket->currentIndex().row();
+    if(model3->index(showticket_curRow,0).data().toString()=="")
+    {
+        QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
 
-    //int rowNum = model2->rowCount();
-    //int id = 10;
-
-    // 添加一行
-    //model3->insertRow(rowNum);
+    }
+    else
+    {
     model3->setData(model3->index(showticket_curRow, 5), userinfo);
-
+    show9=model3->index(showticket_curRow,0).data().toString();  //获得购买的航班座位
+    QMessageBox::information(NULL, QString("恭喜"), QString(tr("尊敬的客户")+userinfo+tr(",您已经购买从")+show2+tr("到")+show3+tr(",")+show4+tr("到")+show5+tr("的")+show1+tr("次航班。登机时间为")+show6+tr("的")+show7+tr("分")+tr(".中国东方航空祝您旅途愉快！！  24小时人工客服热线：95530,vip客户专属服务热线：96300")));
     // 可以直接提交
-   model3->submitAll();
-    //userinfo
-
+    model3->submitAll();
+    }
 }
 
 void user_dialog::on_pushButton_3_clicked()
 {
-
+    show0="";
+    show1="";
+    show2="";
+    show3="";
+    show4="";
+    show5="";
+    show6="";
+    show7="";
+    show8="";
     if(checkfor==1)
     {
         ui->label_show->show();
@@ -337,5 +354,6 @@ void user_dialog::on_pushButton_3_clicked()
 
 void user_dialog::on_pushButton_4_clicked()
 {
-
+   ordered order;
+   order.exec();
 }

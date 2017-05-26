@@ -23,7 +23,12 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 12pt &quot;Arial&quot;;
+    <string notr="true"> border-style:solid;  
+       background: transparent;  
+       background-color: rgb(85, 170, 255); 
+         font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  
 </string>
    </property>
    <property name="text">
@@ -40,8 +45,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-font: 12pt &quot;Arial&quot;;</string>
+    <string notr="true"> border-style:solid;  
+       background: transparent;  
+       background-color: rgb(85, 170, 255); 
+         font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  
+</string>
    </property>
    <property name="text">
     <string>退出</string>
@@ -50,27 +60,89 @@ font: 12pt &quot;Arial&quot;;</string>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>80</y>
+     <x>140</x>
+     <y>60</y>
      <width>160</width>
-     <height>152</height>
+     <height>173</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLineEdit" name="lineEdit_id"/>
+     <widget class="QLineEdit" name="lineEdit_id">
+      <property name="styleSheet">
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_password"/>
+     <widget class="QLineEdit" name="lineEdit_password">
+      <property name="styleSheet">
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_username"/>
+     <widget class="QLineEdit" name="lineEdit_username">
+      <property name="styleSheet">
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_useridnum"/>
+     <widget class="QLineEdit" name="lineEdit_useridnum">
+      <property name="styleSheet">
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QComboBox" name="comboBox_usersex">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid gray;
+font: 14pt &quot;Arial&quot;;
+border-radius: 3px;
+</string>
+      </property>
       <item>
        <property name="text">
         <string>男</string>
@@ -84,7 +156,21 @@ font: 12pt &quot;Arial&quot;;</string>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_usertel"/>
+     <widget class="QLineEdit" name="lineEdit_usertel">
+      <property name="styleSheet">
+       <string notr="true">
+       border-style: solid; 
+       background: transparent;  
+       background-color:#FFFFFF; 
+         
+
+
+ 
+  font: 12pt &quot;微软雅黑&quot;;
+        
+        border-radius: 10px;  </string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -92,9 +178,9 @@ font: 12pt &quot;Arial&quot;;</string>
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>80</y>
+     <y>60</y>
      <width>61</width>
-     <height>151</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">

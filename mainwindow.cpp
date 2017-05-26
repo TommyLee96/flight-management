@@ -14,22 +14,32 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     model = new QSqlTableModel(this);
-    model->setTable("info_flight");
+    model->setTable("user");
     model->select();
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
-    // ui->tableView->setColumnWidth(0, 80);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView->resizeColumnsToContents();
-    ui->tableView->setAlternatingRowColors(true); //使用交替行颜色
-    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     model2 = new QSqlTableModel(this);
-    model2->setTable("user");
+    model2->setTable("info_flight");
     model2->select();
     model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView_2->setModel(model2);
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
+    ui->tableView_2->resizeColumnsToContents();
+    ui->tableView_2->setAlternatingRowColors(true); //使用交替行颜色
+    model3 = new QSqlTableModel(this);
+    model3->setTable("info_seat");
+    model3->select();
+    model3->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    ui->tableView_3->setModel(model3);
+    ui->tableView_3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView_3->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
+    ui->tableView_3->resizeColumnsToContents();
+    ui->tableView_3->setAlternatingRowColors(true); //使用交替行颜色
 }
 
 MainWindow::~MainWindow()
@@ -193,15 +203,94 @@ void MainWindow::on_pushButton_14_clicked()
 
 void MainWindow::on_pushButton_15_clicked()
 {
-    QString name = ui->lineEdit_2->text();
+    QString Fids = ui->lineEdit_2->text();
 
     // 根据姓名进行筛选，一定要使用单引号
-    model2->setFilter(QString("name = '%1'").arg(name));
+    model2->setFilter(QString("Fid = '%1'").arg(Fids));
     model2->select();
 }
 
 void MainWindow::on_pushButton_16_clicked()
 {
-    model2->setTable("admin");
+    model2->setTable("info_flight");
     model2->select();
+}
+
+void MainWindow::on_pushButton_17_clicked()
+{
+    // 开始事务操作
+    model3->database().transaction();
+    if (model3->submitAll()) {
+        if(model3->database().commit()) // 提交
+            QMessageBox::information(this, tr("tableModel"),
+                                     tr("数据修改成功！"));
+    } else {
+        model3->database().rollback(); // 回滚
+        QMessageBox::warning(this, tr("tableModel"),
+                             tr("数据库错误: %1").arg(model3->lastError().text()),
+                             QMessageBox::Ok);
+    }
+}
+
+void MainWindow::on_pushButton_18_clicked()
+{
+    model3->revertAll();
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+    // 获得表的行数
+    int rowNum = model3->rowCount();
+    int id = 10;
+
+    // 添加一行
+    model3->insertRow(rowNum);
+    model3->setData(model3->index(0, 0), id);
+
+    // 可以直接提交
+    //model->submitAll();
+}
+
+void MainWindow::on_pushButton_20_clicked()
+{
+    // 获取选中的行
+    int curRow = ui->tableView_3->currentIndex().row();
+
+    // 删除该行
+    model3->removeRow(curRow);
+    int ok = QMessageBox::warning(this,tr("删除当前行!"),
+                                  tr("你确定删除当前行吗？"), QMessageBox::Yes, QMessageBox::No);
+    if(ok == QMessageBox::No)
+    { // 如果不删除，则撤销
+        model3->revertAll();
+    } else { // 否则提交，在数据库中删除该行
+        model3->submitAll();
+    }
+}
+
+void MainWindow::on_pushButton_21_clicked()
+{
+    model3->setSort(1, Qt::AscendingOrder);
+    model3->select();
+}
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    model3->setSort(1, Qt::DescendingOrder);
+    model3->select();
+}
+
+void MainWindow::on_pushButton_23_clicked()
+{
+    QString Fids3 = ui->lineEdit_3->text();
+
+    // 根据姓名进行筛选，一定要使用单引号
+    model3->setFilter(QString("Fid = '%1'").arg(Fids3));
+    model3->select();
+}
+
+void MainWindow::on_pushButton_24_clicked()
+{
+    model3->setTable("info_seat");
+    model3->select();
 }

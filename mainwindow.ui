@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>822</width>
+    <width>862</width>
     <height>485</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-20</x>
       <y>0</y>
       <width>751</width>
       <height>441</height>
@@ -60,7 +60,7 @@ QTabBar::tab:selected {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -76,18 +76,21 @@ QTabBar::tab:selected {
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableView{
+       <string notr="true">
+QTableView{
+	 
     color: rgb(0, 0, 0);
     border: 1px solid #C07010;          /*边框颜色*/
     gridline-color:#C07010;             /*grid线颜色*/
-    background-color: rgb(255, 218, 185);
+    background-color: rgb(255, 240 ,245);
     alternate-background-color: rgb(200, 200, 200); /*行交替颜色*/
     selection-background-color: rgb(130, 190, 100); /*选中行背景颜色*/
 }
 
 QTableView::item:!alternate:!selected{
     background-color: rgb(220, 220, 220);    /*交替行的另一颜色*/
-}</string>
+}
+QHeaderView{background:skyblue;}</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
@@ -196,7 +199,7 @@ QTableView::item:!alternate:!selected{
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>航班信息修改</string>
      </attribute>
      <widget class="QTableView" name="tableView_2">
       <property name="geometry">
@@ -206,6 +209,23 @@ QTableView::item:!alternate:!selected{
         <width>721</width>
         <height>201</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+QTableView{
+	 
+    color: rgb(0, 0, 0);
+    border: 1px solid #C07010;          /*边框颜色*/
+    gridline-color:#C07010;             /*grid线颜色*/
+    background-color: rgb(255, 240 ,245);
+    alternate-background-color: rgb(200, 200, 200); /*行交替颜色*/
+    selection-background-color: rgb(130, 190, 100); /*选中行背景颜色*/
+}
+
+QTableView::item:!alternate:!selected{
+    background-color: rgb(220, 220, 220);    /*交替行的另一颜色*/
+}
+QHeaderView{background:skyblue;}</string>
       </property>
      </widget>
      <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -249,14 +269,14 @@ QTableView::item:!alternate:!selected{
        <item>
         <widget class="QPushButton" name="pushButton_13">
          <property name="text">
-          <string>按id升序排列</string>
+          <string>按Fid升序排列</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_14">
          <property name="text">
-          <string>按id降序排列</string>
+          <string>按Fid降序排列</string>
          </property>
         </widget>
        </item>
@@ -265,7 +285,7 @@ QTableView::item:!alternate:!selected{
      <widget class="QPushButton" name="pushButton_15">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>380</x>
         <y>300</y>
         <width>75</width>
         <height>23</height>
@@ -278,8 +298,8 @@ QTableView::item:!alternate:!selected{
      <widget class="QPushButton" name="pushButton_16">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>360</y>
+        <x>380</x>
+        <y>330</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -291,7 +311,7 @@ QTableView::item:!alternate:!selected{
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>140</x>
         <y>300</y>
         <width>141</width>
         <height>20</height>
@@ -308,14 +328,144 @@ QTableView::item:!alternate:!selected{
        </rect>
       </property>
       <property name="text">
-       <string>姓名：</string>
+       <string>航班Fid号</string>
       </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>页</string>
+      <string>订单信息修改</string>
      </attribute>
+     <widget class="QTableView" name="tableView_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>721</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+QTableView{
+	 
+    color: rgb(0, 0, 0);
+    border: 1px solid #C07010;          /*边框颜色*/
+    gridline-color:#C07010;             /*grid线颜色*/
+    background-color: rgb(255, 240 ,245);
+    alternate-background-color: rgb(200, 200, 200); /*行交替颜色*/
+    selection-background-color: rgb(130, 190, 100); /*选中行背景颜色*/
+}
+
+QTableView::item:!alternate:!selected{
+    background-color: rgb(220, 220, 220);    /*交替行的另一颜色*/
+}
+QHeaderView{background:skyblue;}</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>230</y>
+        <width>160</width>
+        <height>170</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButton_17">
+         <property name="text">
+          <string>提交修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_18">
+         <property name="text">
+          <string>撤销修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_19">
+         <property name="text">
+          <string>添加记录</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_20">
+         <property name="text">
+          <string>删除选中行</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_21">
+         <property name="text">
+          <string>按id升序排列</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_22">
+         <property name="text">
+          <string>按id降序排列</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_23">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>300</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查  询</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_24">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>350</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>显示全表</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>300</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>300</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>航班Fid查询</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -324,7 +474,7 @@ QTableView::item:!alternate:!selected{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>822</width>
+     <width>862</width>
      <height>23</height>
     </rect>
    </property>
