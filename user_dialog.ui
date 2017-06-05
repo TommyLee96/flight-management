@@ -393,14 +393,17 @@ border-radius: 3px;
   <widget class="QTableView" name="tableView_showticket">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>10</y>
      <width>591</width>
      <height>411</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QTableView::item:selected{
+        color:white;
+        background:rgb(34, 175, 75);    
+}</string>
    </property>
    <property name="showGrid">
     <bool>true</bool>
@@ -410,7 +413,7 @@ border-radius: 3px;
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>0</y>
+     <y>10</y>
      <width>621</width>
      <height>431</height>
     </rect>
@@ -497,11 +500,17 @@ background-color: rgb(	255, 235 ,205);
   <widget class="QTableView" name="tableView_buy">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>10</y>
      <width>591</width>
      <height>421</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView::item:selected{
+        color:white;
+        background:rgb(34, 175, 75);    
+}</string>
    </property>
   </widget>
   <widget class="QPushButton" name="getflight">

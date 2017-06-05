@@ -22,6 +22,12 @@
      <height>361</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView::item:selected{
+        color:white;
+        background:rgb(34, 175, 75);    
+}</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">

@@ -82,8 +82,8 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->pushButton_serachcity->setFocus();
     ui->comboBox->setEditable(true);     //下拉框可编辑
     ui->comboBox_2->setEditable(true);
-    QString place = "北京,上海,长沙,深圳,香港,宿州,合肥";      //添加默认热门城市
-    QString place1 =  "上海,北京,宿州,深圳,香港,长沙";
+    QString place = "合肥,北京,上海,深圳,香港";      //添加默认热门城市
+    QString place1 =  "上海,合肥,北京,深圳,香港";
     QStringList places = place.split(",",QString::SkipEmptyParts);
     QStringList places1 = place1.split(",",QString::SkipEmptyParts);
     ui->comboBox->addItems(places);
@@ -315,7 +315,7 @@ void user_dialog::on_getseat_clicked()
     {
     model3->setData(model3->index(showticket_curRow, 5), userinfo);
     show9=model3->index(showticket_curRow,0).data().toString();  //获得购买的航班座位
-    QMessageBox::information(NULL, QString("恭喜"), QString(tr("尊敬的客户")+userinfo+tr(",您已经购买从")+show2+tr("到")+show3+tr(",")+show4+tr("到")+show5+tr("的")+show1+tr("次航班。登机时间为")+show6+tr("的")+show7+tr("分")+tr(".中国东方航空祝您旅途愉快！！  24小时人工客服热线：95530,vip客户专属服务热线：96300")));
+    QMessageBox::information(NULL, QString("恭喜"), QString(tr("尊敬的客户")+userinfo+tr("\n您已经购买从")+show2+tr("到")+show3+tr("\n")+show4+tr("到")+show5+tr("的")+show1+tr("次航班\n登机时间为")+show6+tr("的")+show7+tr("分")+tr(".\n中国东方航空祝您旅途愉快！！  24小时人工客服热线：95530, vip客户专属服务热线：96300")));
     // 可以直接提交
     model3->submitAll();
     model3->select();
