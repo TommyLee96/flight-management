@@ -12,11 +12,9 @@ user_center::user_center(QWidget *parent) :
     this->setWindowIcon(QIcon(":/images/bitbug_favicon.ico"));
     ui->setupUi(this);
     QSqlQuery query4;
-
     query4.exec("select * from user where id=? ");
     query4.addBindValue(userinfo);
     query4.exec();
-    //qDebug()<<userinfo<<'88888888';
     while(query4.next())
 
    {
@@ -70,7 +68,6 @@ void user_center::on_pushButton_clicked()
     qDebug()<<id<<password<<name<<useridnum<<usersex<<usertel ;
     QSqlQuery query5;//password  username useridnum usersex  usertel
     query5.prepare("UPDATE user SET password=?,username=?,useridnum=?,usersex=?,usertel=? where id=?");
-    //query5.addBindValue(id);
     query5.addBindValue(password);
     query5.addBindValue(name);
     query5.addBindValue(useridnum);
@@ -78,22 +75,11 @@ void user_center::on_pushButton_clicked()
     query5.addBindValue(usertel);
     query5.addBindValue(id);
     if(query5.exec())
-    qDebug() << "UPDATE OK!";
     query5.clear();
-    //query5.exec();
     QSqlQuery query4;
     query4.exec("select * from user where id=? ");
     query4.addBindValue(id);
     query4.exec();
-    qDebug()<<userinfo<<'query44444';
-    while(query4.next())
-   {
-    qDebug() << query4.value(0).toString();
-    qDebug() << query4.value(1).toString();
-    qDebug() << query4.value(2).toString();
-    qDebug() << query4.value(3).toString();
-    qDebug() << query4.value(4).toString();
-   }
     QMessageBox::warning(this, tr("恭喜"),tr("修改成功!"));
     close();
    }

@@ -19,18 +19,31 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置编辑策略
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView->setModel(model);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
-    ui->tableView->resizeColumnsToContents();
+    ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
+    ui->tableView->horizontalHeader()->resizeSection(3,180);
+    ui->tableView->horizontalHeader()->resizeSection(1,100);
+    ui->tableView->horizontalHeader()->resizeSection(2,100);
+    ui->tableView->horizontalHeader()->resizeSection(5,130);
+    ui->tableView->horizontalHeader()->resizeSection(7,130);
     model2 = new QSqlTableModel(this);
     model2->setTable("info_flight");
     model2->select();
     model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->tableView_2->setModel(model2);
-    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_2->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
-    ui->tableView_2->resizeColumnsToContents();
+    ui->tableView_2->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
     ui->tableView_2->setAlternatingRowColors(true); //使用交替行颜色
+    ui->tableView_2->horizontalHeader()->resizeSection(0,30);
+    ui->tableView_2->horizontalHeader()->resizeSection(1,70);
+    ui->tableView_2->horizontalHeader()->resizeSection(2,50);
+    ui->tableView_2->horizontalHeader()->resizeSection(3,50);
+    ui->tableView_2->horizontalHeader()->resizeSection(4,90);
+    ui->tableView_2->horizontalHeader()->resizeSection(5,90);
+    ui->tableView_2->horizontalHeader()->resizeSection(6,90);
+    ui->tableView_2->horizontalHeader()->resizeSection(7,50);
+    ui->tableView_2->horizontalHeader()->resizeSection(8,90);
+    ui->tableView_2->horizontalHeader()->resizeSection(9,70);
     model3 = new QSqlTableModel(this);
     model3->setTable("info_seat");
     model3->select();
@@ -39,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView_3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_3->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView_3->resizeColumnsToContents();
+    ui->tableView_3->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
     ui->tableView_3->setAlternatingRowColors(true); //使用交替行颜色
 }
 

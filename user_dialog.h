@@ -57,21 +57,19 @@ private:
     QString f1;
     QString f2;
     QString f3;
-     QString show0;
-     QString show1;
-     QString show2;
-     QString show3;
-     QString show4;
-     QString show5;
-     QString show6;
-     QString show7;
-     QString show8;
-     QString show9;
-     QTimer* timer;
-     QImage images[6];
-     int index;
-
-
+    QString show0;
+    QString show1;
+    QString show2;
+    QString show3;
+    QString show4;
+    QString show5;
+    QString show6;
+    QString show7;
+    QString show8;
+    QString show9;
+    QTimer* timer;
+    QImage images[6];
+    int index;
 };
 
 #endif // USER_DIALOG_H

@@ -12,8 +12,6 @@ ordered::ordered(QWidget *parent) :
     model6=new QSqlQueryModel(this);
     model6->setQuery(QString("select info_seat.Fid,info_seat.Seatid,info_seat.Aircraftid,info_seat.sdate,info_flight.Fstart,info_flight.Fend,info_flight.AirportS, info_flight.AirportE,info_flight.Fstarttime,info_flight.Fendtime from info_seat,info_flight where id = '%1' AND info_seat.Fid=info_flight.Fid").arg(userinfo));
     ui->tableView->setModel(model6);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
-    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setSelectionBehavior ( QAbstractItemView::SelectRows);
@@ -22,11 +20,10 @@ ordered::ordered(QWidget *parent) :
     ui->tableView->setAlternatingRowColors(true);//使用交替行颜色
     ui->tableView->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
     ui->tableView->hideColumn(0);
-
-
-    //ui->tableView->setAlternatingRowColors(true);
-    //ui->tableView->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
-
+    ui->tableView->horizontalHeader()->resizeSection(4,50);
+    ui->tableView->horizontalHeader()->resizeSection(5,50);
+    ui->tableView->horizontalHeader()->resizeSection(6,100);
+    ui->tableView->horizontalHeader()->resizeSection(7,100);
 
 }
 
@@ -39,7 +36,6 @@ void ordered::on_pushButton_clicked()
 {
 
     int show_curRow = ui->tableView->currentIndex().row();
-    //int showticket_curRow = ui->tableView->currentIndex().row();
     if(model6->index(show_curRow,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("您还没买过票"));
@@ -56,30 +52,13 @@ void ordered::on_pushButton_clicked()
          {
          QSqlQuery query17;
          query17.exec(QString("update info_seat set id = '' where Fid='%1' and Seatid='%2' and Aircraftid='%3' ").arg(model6->index(show_curRow,0).data().toString()).arg(model6->index(show_curRow,1).data().toString()).arg(model6->index(show_curRow,2).data().toString()));
-         qDebug()<<show_curRow<<model6->index(show_curRow,0).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,1).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,2).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,3).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,4).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,5).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,6).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,7).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,8).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,9).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,10).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,11).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,12).data().toString();
-         qDebug()<<show_curRow<<model6->index(show_curRow,13).data().toString();
          model6->setQuery(QString("select info_seat.Fid,info_seat.Seatid,info_seat.Aircraftid,info_seat.sdate,info_flight.Fstart,info_flight.Fend,info_flight.AirportS, info_flight.AirportE,info_flight.Fstarttime,info_flight.Fendtime from info_seat,info_flight where id = '%1' AND info_seat.Fid=info_flight.Fid").arg(userinfo));
-         model6->select();
+
      }
     }
-
-
 }
-
 void ordered::on_pushButton_2_clicked()
 {
-    //ui->label_show->show();
+
     close();
 }

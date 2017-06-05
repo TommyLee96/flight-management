@@ -26,4 +26,4 @@ private:
 };
 
 #endif // LOGIN_H
-//if(ui->radioButton->isChecked())
+

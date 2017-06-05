@@ -33,11 +33,6 @@ void login::on_pushButton_clicked()
     {
         QSqlQuery query3;
         query3.exec("select * from user");//query3.exec("select * from user");
-        while(query3.next())
-        {
-             qDebug()<<"test1";
-             qDebug() << query3.value(0).toString()<< query3.value(1).toString();
-        }
         QMessageBox::information(this,tr("提示%1").arg(username),
                               tr("请输入完整信息!"),QMessageBox::Ok);
 	}
@@ -53,10 +48,9 @@ void login::on_pushButton_clicked()
         int flag_user=1;
         QSqlQuery query2;
         query2.exec("select * from user ");
-        qDebug()<<"test2";
         while(query2.next())
         {
-           qDebug()<<"test3";
+
            if(query2.value(0).toString() == username)
             {
                flag_user=0;

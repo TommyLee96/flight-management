@@ -77,13 +77,11 @@ static bool createConnection()
     query5.exec("insert into info_flight values('023', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-16','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('024', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-18','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('025', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-20','9:30','10:50:00',1000)");
-
     query5.exec("insert into info_flight values('026', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-22','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('027', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-24','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('028', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-26','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('029', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-28','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('030', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-30','9:30','10:50:00',1000)");
-
     query5.exec();
     
 	QSqlQuery query3;                                                                                //座位信息表****
@@ -96,8 +94,6 @@ static bool createConnection()
     query10.exec("select Fid,Aircraftid,sdate from info_flight");
     while(query10.next())
     {
-    qDebug()<<query10.value(0).toString();
-    //qDebug()<<'lalallalalla';
     for(int q=1;q<=20;q++)
         {
         QSqlQuery query11;
@@ -118,8 +114,6 @@ static bool createConnection()
     }
     query10.exec();
     query3.exec();
-
-
     return true;
 }
 #endif // CONNECTION_H

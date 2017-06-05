@@ -37,7 +37,6 @@ user_dialog::user_dialog(QWidget *parent) :
     model3->setFilter(QString("id = '%1'").arg(""));
     model3->select();
     model3->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    //QSqlTableModel model3 = new QSqlTableModel;
     ui->tableView_showticket->setModel(model3);
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView_showticket->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
@@ -90,8 +89,6 @@ user_dialog::user_dialog(QWidget *parent) :
     ui->comboBox_2->addItems(places1);
     QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
     QString strTime = time.toString("yyyy-MM-dd");//设("yyyy-MM-dd");设置系统时间显示格式
-    //ui->lcdNumber->display(strTime);//在lcdNumber上显示时间
-
     ui->label_show->setStyleSheet("border-image: url(:/images/5.jpg)");
     ui->label_show->show();
     images[0] = QImage(":/images/0.jpg");
@@ -100,13 +97,10 @@ user_dialog::user_dialog(QWidget *parent) :
     images[3] = QImage(":/images/3.jpg");
     images[4] = QImage(":/images/4.jpg");
     images[5] = QImage(":/images/5.jpg");
-
-
-        index = 0;
-
-        timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
-        timer->start(3000);
+    index = 0;
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
+    timer->start(3000);
 }
 
 user_dialog::~user_dialog()
@@ -174,10 +168,8 @@ void user_dialog::on_pushButton_searchnum_clicked()
 void user_dialog::on_btntime_clicked()
 {
     o=o+1;
-    //qDebug()<<j<<"on_btntime_clicked";
     if(o % 2 == 0)
     {
-        qDebug()<<"on_btntime_clicked";
         //选择时间时，下面控件隐藏
         //j本身为1，当点击奇数次，日历显示
         ui->calendarWidget->show();
@@ -226,7 +218,6 @@ void user_dialog::on_search_clicked()
            QString Fend=ui->comboBox_2->currentText();
            QString sdate=ui->lineEdit_time->text();
            QSqlQuery query15;
-           qDebug()<<start<<"OO8O8O88O8OO8O8O8";
            model5->setFilter(QString("Fstart = '%1' AND Fend= '%2' AND sdate='%3'").arg(start).arg(Fend).arg(sdate));
            model5->select();
         }
@@ -247,22 +238,7 @@ void user_dialog::on_pushButton_2_clicked()
     int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
     model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
     model3->select();
-    /*if(model3->index(rowidx,0).data().toString()=="")
-    {
-        //ui->tableView_buy->hide();
-        //ui->tableView_showticket->hide();
-        QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
-        ui->label_show->show();
-
-    }
-    else
-    {
-      // ui->label_show->hide();// 根据姓名进行筛选，一定要使用单引号
-       model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
-       model3->select();
-       //ui->tableView_showticket->show();
-    }*/
-    qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
+  //qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
 }
 
 void user_dialog::on_getflight_clicked()
@@ -271,8 +247,6 @@ void user_dialog::on_getflight_clicked()
     if(model3->index(getflight_rowidx,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
-        //ui->label_show->show();
-
     }
     else
     {

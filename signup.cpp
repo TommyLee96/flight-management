@@ -46,7 +46,6 @@ void signup::on_pushButton_clicked()
          QString name=query.value(0).toString();
          if(id==name)
              {
-              qDebug() <<query.value(0).toString();
               QMessageBox::warning(this, tr("错误"),tr("用户已存在!"));
               ui->lineEdit_id->clear();
               ui->lineEdit_id->setFocus();//给一个输入焦点
