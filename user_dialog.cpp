@@ -91,7 +91,20 @@ user_dialog::user_dialog(QWidget *parent) :
     QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
     QString strTime = time.toString("yyyy-MM-dd");//设("yyyy-MM-dd");设置系统时间显示格式
     //ui->lcdNumber->display(strTime);//在lcdNumber上显示时间
+
+    ui->label_show->setStyleSheet("border-image: url(:/images/13.jpg)");
     ui->label_show->show();
+    images[0] = QImage(":/images/0.jpg");
+    images[1] = QImage(":/images/1.jpg");
+    images[2] = QImage(":/images/2.jpgg");
+    images[3] = QImage(":/images/3.jpg");
+    images[4] = QImage(":/images/4.jpg");
+
+        index = 0;
+
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
+        timer->start(3000);
 }
 
 user_dialog::~user_dialog()
@@ -123,10 +136,19 @@ void user_dialog::on_pushButton_serachcity_clicked()
     ui->label_5->hide();
     ui->pushButton_serachcity->setEnabled(false);
     ui->pushButton_searchnum->setEnabled(true);
+    ui->label_show->show();
+}
+void user_dialog::timeout()
+{
+    index++;
+    QString url;
+    url="border-image: url(:/images/"+QString::number(index%4,10)+".jpg)";
+    ui->label_show->setStyleSheet(url);
 }
 
 void user_dialog::on_pushButton_searchnum_clicked()
 {
+    ui->label_show->show();
     checkfor=0;//选择航班号查询
     ui->getseat->show();
     ui->pushButton_2->show();
@@ -221,16 +243,23 @@ void user_dialog::on_pushButton_2_clicked()
 {
     ui->label_show->hide();
     int rowidx = ui->tableView_showticket->selectionModel()->currentIndex().row();
-    if(model3->index(rowidx,0).data().toString()=="")
+    model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
+    model3->select();
+    /*if(model3->index(rowidx,0).data().toString()=="")
     {
+        //ui->tableView_buy->hide();
+        //ui->tableView_showticket->hide();
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
+        ui->label_show->show();
+
     }
     else
     {
-       // 根据姓名进行筛选，一定要使用单引号
+      // ui->label_show->hide();// 根据姓名进行筛选，一定要使用单引号
        model3->setFilter(QString("Aircraftid = '%1' and sdate = '%2' AND id= '%3'").arg(ui->dateEdit->currentText()).arg(ui->lineEdit_time->text()).arg(""));
        model3->select();
-    }
+       //ui->tableView_showticket->show();
+    }*/
     qDebug()<<model3->index(rowidx,1).data().toString();  //获取选定行某列的数据
 }
 
@@ -240,6 +269,8 @@ void user_dialog::on_getflight_clicked()
     if(model3->index(getflight_rowidx,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
+        //ui->label_show->show();
+
     }
     else
     {
@@ -271,6 +302,11 @@ void user_dialog::on_getseat_clicked()
     if(model3->index(showticket_curRow,0).data().toString()=="")
     {
         QMessageBox::information(NULL, QString("错啦"), QString("没有该航班，请重新查询"));
+        //
+        if(checkfor==0)
+        {
+                ui->label_show->show();
+         }
 
     }
     else
@@ -280,6 +316,7 @@ void user_dialog::on_getseat_clicked()
     QMessageBox::information(NULL, QString("恭喜"), QString(tr("尊敬的客户")+userinfo+tr(",您已经购买从")+show2+tr("到")+show3+tr(",")+show4+tr("到")+show5+tr("的")+show1+tr("次航班。登机时间为")+show6+tr("的")+show7+tr("分")+tr(".中国东方航空祝您旅途愉快！！  24小时人工客服热线：95530,vip客户专属服务热线：96300")));
     // 可以直接提交
     model3->submitAll();
+    model3->select();
     ui->label_show->show();
     }
 }

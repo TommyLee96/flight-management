@@ -12,16 +12,20 @@ ordered::ordered(QWidget *parent) :
     model6=new QSqlQueryModel(this);
     model6->setQuery(QString("select info_seat.Fid,info_seat.Seatid,info_seat.Aircraftid,info_seat.sdate,info_flight.Fstart,info_flight.Fend,info_flight.AirportS, info_flight.AirportE,info_flight.Fstarttime,info_flight.Fendtime from info_seat,info_flight where id = '%1' AND info_seat.Fid=info_flight.Fid").arg(userinfo));
     ui->tableView->setModel(model6);
-    ui->tableView->hideColumn(0);
-	ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //设置表格列宽度自适应
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Fixed);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setSelectionBehavior ( QAbstractItemView::SelectRows);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:lightblue;color: black;padding-left: 4px;border: 1px solid #6c6c6c;}");
-    ui->tableView->setAlternatingRowColors(true);
+    ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}"); //设置表头背景色
+    ui->tableView->setAlternatingRowColors(true);//使用交替行颜色
     ui->tableView->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
+    ui->tableView->hideColumn(0);
+
+
+    //ui->tableView->setAlternatingRowColors(true);
+    //ui->tableView->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
 
 
 }

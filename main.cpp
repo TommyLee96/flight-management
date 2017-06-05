@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
         else    //默认为用户登录
         {
 			user_dialog c;
+
 			c.show();
 			return a.exec();
         }

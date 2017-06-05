@@ -16,10 +16,10 @@ static bool createConnection()
 
     QSqlQuery query0;
     query0.exec("create table user (id varchar(20) primary key, "   //用户名 密码 姓名 身份证  性别 手机号码
-               "password varchar(20),username varchar(20),useridnum varchar(18),usersex varchar(2),usertel varchar(11))");
-    query0.exec("insert into user values('333', '333','张三','111111111111111111','女','18158873043')");
-    query0.exec("insert into user values('111', '111','李四','340827199609024313','男','18156577855')");
-    query0.exec("insert into user values('000', '000','王五','254698744455555555','男','1234567899')");
+               "password varchar(20),username varchar(20),useridnum varchar(18),usersex varchar(2),usertel varchar(11),image blob)");
+    query0.exec("insert into user values('333', '333','张三','111111111111111111','女','18158873043','')");
+    query0.exec("insert into user values('111', '111','李四','340827199609024313','男','18156577855','')");
+    query0.exec("insert into user values('000', '000','王五','254698744455555555','男','1234567899','')");
     query0.exec();
 
     QSqlQuery query1;

@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QSqlError>
 #include <QDialog>
+#include <QTimer>
 class QSqlTableModel;
 class QSqlQueryModel;
 class QMediaPlayer;
@@ -29,27 +30,21 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_serachcity_clicked();
     void on_pushButton_searchnum_clicked();
     void on_btntime_clicked();
     void on_pushButton_calenda_clicked();
     void on_search_clicked();
-
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
-
     void on_getflight_clicked();
-
     void on_getseat_clicked();
-
-
-
     void on_pushButton_4_clicked();
+    void timeout();
+protected:
 
 private:
     Ui::user_dialog *ui;
-
     QSqlTableModel *model3;  //座位界面
     QSqlTableModel *model5;   //航班
     QSqlQueryModel *model4;
@@ -72,7 +67,9 @@ private:
      QString show7;
      QString show8;
      QString show9;
-
+     QTimer* timer;
+     QImage images[5];
+     int index;
 
 
 };
