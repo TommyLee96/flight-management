@@ -99,6 +99,8 @@ user_dialog::user_dialog(QWidget *parent) :
     images[2] = QImage(":/images/2.jpgg");
     images[3] = QImage(":/images/3.jpg");
     images[4] = QImage(":/images/4.jpg");
+    images[5] = QImage(":/images/5.jpg");
+
 
         index = 0;
 
@@ -142,7 +144,7 @@ void user_dialog::timeout()
 {
     index++;
     QString url;
-    url="border-image: url(:/images/"+QString::number(index%4,10)+".jpg)";
+    url="border-image: url(:/images/"+QString::number(index%5,10)+".jpg)";
     ui->label_show->setStyleSheet(url);
 }
 

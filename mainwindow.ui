@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>862</width>
+    <width>740</width>
     <height>485</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>-10</x>
       <y>0</y>
       <width>751</width>
       <height>441</height>
@@ -72,7 +72,7 @@ QTabBar::tab:selected {
         <x>10</x>
         <y>10</y>
         <width>721</width>
-        <height>201</height>
+        <height>291</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -96,8 +96,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>330</y>
+        <x>60</x>
+        <y>320</y>
         <width>54</width>
         <height>12</height>
        </rect>
@@ -109,8 +109,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>330</y>
+        <x>110</x>
+        <y>320</y>
         <width>141</width>
         <height>20</height>
        </rect>
@@ -119,8 +119,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>290</y>
+        <x>260</x>
+        <y>320</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -132,8 +132,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_6">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>330</y>
+        <x>250</x>
+        <y>360</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -145,34 +145,13 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>220</y>
-        <width>160</width>
-        <height>170</height>
+        <x>620</x>
+        <y>310</y>
+        <width>101</width>
+        <height>81</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>提交修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>撤销修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>添加记录</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QPushButton" name="pushButton_4">
          <property name="text">
@@ -196,6 +175,39 @@ QHeaderView{background:skyblue;}</string>
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>310</y>
+        <width>101</width>
+        <height>83</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>提交修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>撤销修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>添加记录</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -207,7 +219,7 @@ QHeaderView{background:skyblue;}</string>
         <x>20</x>
         <y>20</y>
         <width>721</width>
-        <height>201</height>
+        <height>291</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -231,34 +243,13 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>220</y>
-        <width>160</width>
-        <height>170</height>
+        <x>620</x>
+        <y>320</y>
+        <width>91</width>
+        <height>91</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QPushButton" name="pushButton_9">
-         <property name="text">
-          <string>提交修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_10">
-         <property name="text">
-          <string>撤销修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_11">
-         <property name="text">
-          <string>添加记录</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QPushButton" name="pushButton_12">
          <property name="text">
@@ -285,8 +276,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_15">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>300</y>
+        <x>250</x>
+        <y>330</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -298,8 +289,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_16">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>330</y>
+        <x>250</x>
+        <y>360</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -311,8 +302,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>300</y>
+        <x>100</x>
+        <y>330</y>
         <width>141</width>
         <height>20</height>
        </rect>
@@ -321,8 +312,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>300</y>
+        <x>40</x>
+        <y>340</y>
         <width>54</width>
         <height>12</height>
        </rect>
@@ -330,6 +321,39 @@ QHeaderView{background:skyblue;}</string>
       <property name="text">
        <string>航班Fid号</string>
       </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>330</y>
+        <width>101</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="pushButton_9">
+         <property name="text">
+          <string>提交修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_11">
+         <property name="text">
+          <string>添加记录</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_10">
+         <property name="text">
+          <string>撤销修改</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
@@ -339,10 +363,10 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QTableView" name="tableView_3">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>10</y>
         <width>721</width>
-        <height>211</height>
+        <height>291</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -366,34 +390,13 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QWidget" name="verticalLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>230</y>
-        <width>160</width>
-        <height>170</height>
+        <x>610</x>
+        <y>310</y>
+        <width>101</width>
+        <height>91</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QPushButton" name="pushButton_17">
-         <property name="text">
-          <string>提交修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_18">
-         <property name="text">
-          <string>撤销修改</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_19">
-         <property name="text">
-          <string>添加记录</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QPushButton" name="pushButton_20">
          <property name="text">
@@ -420,8 +423,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_23">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>300</y>
+        <x>250</x>
+        <y>330</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -433,8 +436,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QPushButton" name="pushButton_24">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>350</y>
+        <x>250</x>
+        <y>370</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -447,8 +450,8 @@ QHeaderView{background:skyblue;}</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>300</y>
-        <width>141</width>
+        <y>330</y>
+        <width>101</width>
         <height>20</height>
        </rect>
       </property>
@@ -456,8 +459,8 @@ QHeaderView{background:skyblue;}</string>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>300</y>
+        <x>30</x>
+        <y>330</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -465,6 +468,39 @@ QHeaderView{background:skyblue;}</string>
       <property name="text">
        <string>航班Fid查询</string>
       </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>310</y>
+        <width>111</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="pushButton_17">
+         <property name="text">
+          <string>提交修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_18">
+         <property name="text">
+          <string>撤销修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_19">
+         <property name="text">
+          <string>添加记录</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -474,7 +510,7 @@ QHeaderView{background:skyblue;}</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>862</width>
+     <width>740</width>
      <height>23</height>
     </rect>
    </property>

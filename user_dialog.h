@@ -68,7 +68,7 @@ private:
      QString show8;
      QString show9;
      QTimer* timer;
-     QImage images[5];
+     QImage images[6];
      int index;
 
 
