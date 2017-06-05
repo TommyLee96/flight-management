@@ -92,7 +92,7 @@ user_dialog::user_dialog(QWidget *parent) :
     QString strTime = time.toString("yyyy-MM-dd");//设("yyyy-MM-dd");设置系统时间显示格式
     //ui->lcdNumber->display(strTime);//在lcdNumber上显示时间
 
-    ui->label_show->setStyleSheet("border-image: url(:/images/13.jpg)");
+    ui->label_show->setStyleSheet("border-image: url(:/images/5.jpg)");
     ui->label_show->show();
     images[0] = QImage(":/images/0.jpg");
     images[1] = QImage(":/images/1.jpg");
