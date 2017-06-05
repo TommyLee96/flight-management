@@ -71,7 +71,8 @@ void ordered::on_pushButton_clicked()
          qDebug()<<show_curRow<<model6->index(show_curRow,12).data().toString();
          qDebug()<<show_curRow<<model6->index(show_curRow,13).data().toString();
          model6->setQuery(QString("select info_seat.Fid,info_seat.Seatid,info_seat.Aircraftid,info_seat.sdate,info_flight.Fstart,info_flight.Fend,info_flight.AirportS, info_flight.AirportE,info_flight.Fstarttime,info_flight.Fendtime from info_seat,info_flight where id = '%1' AND info_seat.Fid=info_flight.Fid").arg(userinfo));
-         }
+         model6->select();
+     }
     }
 
 

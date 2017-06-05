@@ -51,11 +51,11 @@ static bool createConnection()
                " AirportS varchar(20),"                                              //公司Fstart varchar(20),Fendsdate         varchar
                " AirportE  varchar(20),sdate varchar(20),Fstarttime time,Fendtime time,Fmoney float,"
                "FOREIGN KEY(Aircraftid) REFERENCES info_aircraft(Aircraftid))");                                                 //座位数量   float
-    query5.exec("insert into info_flight values('000', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-1','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('001', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-3','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('002', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-5','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('003', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-7','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('004', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-9','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('000', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-01','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('001', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-03','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('002', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-05','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('003', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-07','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('004', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-09','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('005', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-11','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('006', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-13','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('007', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-15','9:30','10:50:00',1000)");
@@ -67,10 +67,10 @@ static bool createConnection()
     query5.exec("insert into info_flight values('013', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-27','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('014', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-29','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('015', 'HU7604','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-31','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('016', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-2','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('017', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-4','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('018', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-6','9:30','10:50:00',1000)");
-    query5.exec("insert into info_flight values('019', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-8','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('016', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-02','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('017', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-04','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('018', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-06','9:30','10:50:00',1000)");
+    query5.exec("insert into info_flight values('019', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-08','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('020', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-10','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('021', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-12','9:30','10:50:00',1000)");
     query5.exec("insert into info_flight values('022', 'CA1846','合肥','上海','合肥新桥机场','上海虹桥机场','2017-06-14','9:30','10:50:00',1000)");
